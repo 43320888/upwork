@@ -19,25 +19,15 @@
 	position: relative;
 	width: 400px;
 }
-#prizePointer {
+#price-pointer {
 	position: absolute;
-	left: 150px;
-	top: -50px;
+	left: 500px;
+	top: 10px;
 	z-index: 999;
-	width: 100px;
-}
-#spinButton {
-	position: absolute;
-	left: 100px;
-	top: 100px;
-	z-index: 999;
-	width: 200px;
-}
-.spin-table canvas {
-	z-index: 1;
 }
 
 .spin-table canvas {
+	z-index: 1;
 	-webkit-animation-name: spin;
 	-webkit-animation-duration: 40000ms;
 	-webkit-animation-iteration-count: infinite;
@@ -55,12 +45,12 @@
 @-moz-keyframes spin {
 	from { -moz-transform: rotate(0deg); }
 	to { -moz-transform: rotate(360deg); }
-}
-@-webkit-keyframes spin {
+    }
+    @-webkit-keyframes spin {
 	from { -webkit-transform: rotate(0deg); }
 	to { -webkit-transform: rotate(360deg); }
-}
-@keyframes spin {
+    }
+    @keyframes spin {
 	from {transform:rotate(0deg);}
 	to {transform:rotate(360deg);}
-}
+    }

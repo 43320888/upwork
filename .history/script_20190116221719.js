@@ -16,17 +16,9 @@ const theWheel3 = new Winwheel({
 		{
 			'type': 'spinToStop',
 			'duration': 5,
-			'spins': 8,
-			'callbackFinished' : 'alertPrize()'
+			'spins': 8
 		}
 });
-function alertPrize(prize) {
-	document.querySelector('.spin-table').insertAdjacentHTML('beforeend', `<div class="modal">
-	<li><input type="text" placeholder="name"></li>
-	<li><input type="text" placeholder="email"></li>
-	<li><input type="submit" placeholder="submit"></li>
-</div>`);
-}
 
 function alignContent() {
 	document.getElementsByClassName('spin-table')[0].style.height = `${document.documentElement.clientHeight}px`;

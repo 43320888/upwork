@@ -21,7 +21,7 @@ const theWheel3 = new Winwheel({
 		}
 });
 function alertPrize(prize) {
-	document.querySelector('.spin-table').insertAdjacentHTML('beforeend', `<div class="modal">
+	document.body.querySelector('spin-table').insertAdjacentHTML('beforeend', `<div class="modal">
 	<li><input type="text" placeholder="name"></li>
 	<li><input type="text" placeholder="email"></li>
 	<li><input type="submit" placeholder="submit"></li>

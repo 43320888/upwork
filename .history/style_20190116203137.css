@@ -1,0 +1,14 @@
+.spin-table {
+	background-image: url(images/Covers.jpg);
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+.spin-table > div {
+	margin-left: 50%;
+	transform: translateX(-50%);
+	text-align: center;
+	display: inline-block;
+}
+.spin-table > div {
+	height: 100%;
+}

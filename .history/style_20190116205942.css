@@ -1,0 +1,15 @@
+.spin-table {
+	background-image: url(images/Covers.jpg);
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.spin-table > div {
+	margin-left: 50%;
+	transform: translateX(-50%);
+	text-align: center;
+	display: inline-block;
+}
+.spin-table > ul {
+	list-style: square
+}
