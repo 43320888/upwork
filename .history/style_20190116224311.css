@@ -26,13 +26,6 @@
 	z-index: 999;
 	width: 100px;
 }
-#spinButton {
-	position: absolute;
-	left: 100px;
-	top: 100px;
-	z-index: 999;
-	width: 200px;
-}
 .spin-table canvas {
 	z-index: 1;
 }

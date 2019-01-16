@@ -19,23 +19,7 @@
 	position: relative;
 	width: 400px;
 }
-#prizePointer {
-	position: absolute;
-	left: 150px;
-	top: -50px;
-	z-index: 999;
-	width: 100px;
-}
-#spinButton {
-	position: absolute;
-	left: 100px;
-	top: 100px;
-	z-index: 999;
-	width: 200px;
-}
-.spin-table canvas {
-	z-index: 1;
-}
+#pr
 
 .spin-table canvas {
 	-webkit-animation-name: spin;
@@ -55,12 +39,12 @@
 @-moz-keyframes spin {
 	from { -moz-transform: rotate(0deg); }
 	to { -moz-transform: rotate(360deg); }
-}
-@-webkit-keyframes spin {
+    }
+    @-webkit-keyframes spin {
 	from { -webkit-transform: rotate(0deg); }
 	to { -webkit-transform: rotate(360deg); }
-}
-@keyframes spin {
+    }
+    @keyframes spin {
 	from {transform:rotate(0deg);}
 	to {transform:rotate(360deg);}
-}
+    }

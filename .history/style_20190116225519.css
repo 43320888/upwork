@@ -28,16 +28,16 @@
 }
 #spinButton {
 	position: absolute;
-	left: 100px;
-	top: 100px;
+	left: 150px;
+	top: -50px;
 	z-index: 999;
-	width: 200px;
+	width: 100px;
 }
 .spin-table canvas {
 	z-index: 1;
 }
 
-.spin-table canvas {
+/* .spin-table canvas {
 	-webkit-animation-name: spin;
 	-webkit-animation-duration: 40000ms;
 	-webkit-animation-iteration-count: infinite;
@@ -63,4 +63,4 @@
 @keyframes spin {
 	from {transform:rotate(0deg);}
 	to {transform:rotate(360deg);}
-}
+} */
