@@ -1,0 +1,200 @@
+
+* {
+	margin:0;
+	padding:0;
+	box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-font-smoothing:antialiased;
+	-moz-font-smoothing:antialiased;
+	-o-font-smoothing:antialiased;
+	font-smoothing:antialiased;
+	text-rendering:optimizeLegibility;
+}
+body {
+
+	background-image:url("../assets/images/back.jpg");
+	background-repeat:no-repeat;
+	background-size:cover;
+
+	
+	
+	
+
+	/* you can set an image it will affect form */
+	font:400 12px/1.625 "Helvetica Neue", Helvetica, Arial, sans-serif;
+	/*
+	color:#444;
+	background:#991D57;
+	background-image:linear-gradient(left , #761542 0%, #991D57 52%, #761542 100%);
+	background-image:-moz-linear-gradient(left , #761542 0%, #991D57 52%, #761542 100%);
+	background-image:-webkit-linear-gradient(left , #761542 0%, #991D57 52%, #761542 100%);
+*/
+}
+#gameCanvas {
+	position: absolute;
+	margin-left: auto;
+	margin-right: auto;
+	left: 0; /* 50% will place the game to the left */
+	right: 0;/* 50% will place the game to the right */
+	top: 0%;/* this control the top postion ( expamle 25%)*/
+}.wrapper {
+	position: absolute;
+	max-width:500px;
+	width:95%;
+	margin-left: auto;
+	margin-right: auto;
+	left: 0;
+	right: 0;
+	visibility: hidden;
+	padding-top:200px;
+	
+}
+contact-form textarea,
+#contact-form button[type="submit"] {
+	font:400 12px/12px "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+
+#contact-form input[type="text"],
+#contact-form input[type="email"],
+#contact-form input[type="tel"],
+#contact-form input[type="url"]
+{
+	font:400 16px/16px "Helvetica Neue", Helvetica, Arial, sans-serif;
+	width:100%;
+	box-shadow:inset 0 1px 2px #DDD, 0 1px 0 #FFF;
+	-webkit-box-shadow:inset 0 1px 2px #DDD, 0 1px 0 #FFF;
+	-moz-box-shadow:inset 0 1px 2px #DDD, 0 1px 0 #FFF;
+	border:2px solid #CCC;
+	background:#FFF;
+	margin: 5px 0;
+	padding:16px 40px;
+	/*padding-left:40px;*/
+	border-radius:5px;
+}
+
+
+#contact-form {
+	text-shadow:0 1px 0 #FFF;
+	border-radius:4px;
+	-webkit-border-radius:4px;
+	-moz-border-radius:4px;
+	background:#FFFFFF;
+	padding:25px;
+
+}
+#contact-form label span {
+	cursor:pointer;
+	display:block;
+	margin:5px 0;
+	font-weight:900;
+}
+
+#contact-form input[type="text"]:hover,
+#contact-form input[type="email"]:hover,
+#contact-form input[type="tel"]:hover,
+#contact-form input[type="url"]:hover,
+#contact-form textarea:hover {
+	-webkit-transition:border-color 0.3s ease-in-out;
+	-moz-transition:border-color 0.3s ease-in-out;
+	transition:border-color 0.3s ease-in-out;
+	border:2px solid #AAA;
+}
+#contact-form textarea {
+	height:100px;
+	max-width:100%;
+}
+#contact-form button[type="button"] {
+	cursor:pointer;
+	width:100%;
+	border:none;
+	background:#FFF;
+	background-image:linear-gradient(bottom, #FFF 0%, #FFF 52%);
+	background-image:-moz-linear-gradient(bottom, #FFF 0%, #FFF 52%);
+	background-image:-webkit-linear-gradient(bottom, #FFF 0%, #FFF 52%);
+	color:#FFF;
+	margin:0 0 5px;
+	
+}
+#contact-form button[type="submit"]:hover {
+	/*
+	background-image:linear-gradient(bottom, #FFF 0%, #FFF 52%);
+	background-image:-moz-linear-gradient(bottom, #FFF 0%, #FFF 52%);
+	background-image:-webkit-linear-gradient(bottom, #FFF 0%, #FFF 52%);
+	*/
+	-webkit-transition:background 0.3s ease-in-out;
+	-moz-transition:background 0.3s ease-in-out;
+	/*transition:background-color 0.3s ease-in-out;*/
+}
+#contact-form button[type="submit"]:active {
+/*	box-shadow:inset 0 1px 3px rgba(0,0,0,0.5);*/
+}
+#contact-form input:focus,
+#contact-form textarea:focus {
+	outline:0;
+	border:2px solid #999;
+}
+::-webkit-input-placeholder {
+    color:#888;
+}
+:-moz-placeholder {
+    color:#888;
+}
+::-moz-placeholder {
+    color:#888;
+}
+:-ms-input-placeholder {
+    color:#888;
+}.YIFRAME{
+	background-color: #ffffff;
+	position:absolute;
+	width : 60%;
+	height : 75%;
+	margin-left: 20%;
+	margin-right: 20%;
+	margin-top: 10%;
+	visibility : hidden ;
+	z-index: 0;
+}div.YIFRAME img.YcloseMe {
+	position:absolute;
+	top:2%;
+	right:2%;
+	cursor: pointer;
+}
+.IconImgForm{
+	position :absolute;
+	width : 2rem;
+	margin-top:15px;
+	margin-left:5px;
+}#CloseForm{
+	position :absolute;
+	width : 25px;
+	cursor: pointer;
+	margin-top:-24px;
+	
+}
+.M_input{
+	font:400 16px/16px "Helvetica Neue", Helvetica, Arial, sans-serif;
+	width:100%;
+	box-shadow:inset 0 1px 2px #DDD, 0 1px 0 #FFF;
+	-webkit-box-shadow:inset 0 1px 2px #DDD, 0 1px 0 #FFF;
+	-moz-box-shadow:inset 0 1px 2px #DDD, 0 1px 0 #FFF;
+	border:2px solid #CCC;
+	background:#FFF;
+	margin: 5px 0;
+	padding:16px 2px;
+	/*padding-left:40px;*/
+	border-radius:5px;
+}.M_input:hover {
+	-webkit-transition:border-color 0.3s ease-in-out;
+	-moz-transition:border-color 0.3s ease-in-out;
+	transition:border-color 0.3s ease-in-out;
+	border:2px solid #AAA;
+}
+
+iframe {
+        width: 1px;
+        min-width: 100%;
+        *width: 100%;
+    }
