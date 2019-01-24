@@ -50,21 +50,23 @@ const configSlotMachine777theMostUniqueName = () => {
 		// { 'text': '5 nights in Mexico' },
 		// { 'text': 'Restaurant Gift $100' },
 		// { 'text': '3 nights in Vegas' },
-		{ 'text': 'HOTTEST WINGS', 'win': false },
-		{ 'text': 'DINNER FOR TWO', 'win': false },
+		{ 'text': 'HOTTEST WINGS', 'win': true },
+		{ 'text': 'DINNER FOR TWO', 'win': true },
 		{ 'text': 'DESSERT', 'win': false },
 		{ 'text': '20% COUPON', 'win': false },
 		{ 'text': 'SORRY', 'win': false },
 		{ 'text': 'GOLDEN TICKET', 'win': false },
 	];
 
-	const postType = /* 'new page' */ 'current page';
+	/**
+	 * if postType = 1 then won on current page
+	 * if postType = 0 then won on new page
+	 */const postType = 0;
 
 	return {
 		pictures,
 		tableHeight,
 		segments,
 		sounds,
-		postType,
 	};
 };

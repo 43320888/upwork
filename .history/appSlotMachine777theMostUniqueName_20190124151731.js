@@ -398,7 +398,7 @@
 			}, 2000);
 		} else if(config.postType === 'current page') {
 			const modalWindow = document.createElement('iframe');
-			modalWindow.src = `popup/index.html?winningSegment=${winningSegment.text}`;
+			modalWindow.src = 'popup/index.html';
 			modalWindow.style.cssText = `
 				height: 80%;
 				position: absolute;

@@ -398,14 +398,14 @@
 			}, 2000);
 		} else if(config.postType === 'current page') {
 			const modalWindow = document.createElement('iframe');
-			modalWindow.src = `popup/index.html?winningSegment=${winningSegment.text}`;
+			modalWindow.src = 'popup/index.html';
 			modalWindow.style.cssText = `
-				height: 80%;
-				position: absolute;
-				top: 10%;
-				left: 10%;
-				width: 80%;
-				z-index: 3;
+				height: ${e.canvaswrapper.innerHeight}px;
+				position: relative;
+				top: 0;
+				left: 0;
+				width: ${e.canvaswrapper.innerWidth}px;
+				z-index: 10;
 				background: #fff8;
 			`;
 			e.canvaswrapper.append(modalWindow);

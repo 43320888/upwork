@@ -392,24 +392,9 @@
 	const alertPrize = () => {
 		const winningSegment = theWheel.getIndicatedSegment();
 		console.log(winningSegment.text);
-		if (config.postType === 'new page') {
-			setTimeout(() => {
-				location.href=`popup/index.html?winningSegment=${winningSegment.text}`;
-			}, 2000);
-		} else if(config.postType === 'current page') {
-			const modalWindow = document.createElement('iframe');
-			modalWindow.src = `popup/index.html?winningSegment=${winningSegment.text}`;
-			modalWindow.style.cssText = `
-				height: 80%;
-				position: absolute;
-				top: 10%;
-				left: 10%;
-				width: 80%;
-				z-index: 3;
-				background: #fff8;
-			`;
-			e.canvaswrapper.append(modalWindow);
-		}
+		if (config.postType === 'new page') setTimeout(() => {
+			location.href=`popup/index.html?winningSegment=${winningSegment.text}`;
+		}, 2000);
 		playSound(new Audio(config.sounds.afterWheelSpin));
 	};
 
