@@ -178,7 +178,7 @@
 
 	/* SPIN */
 
-	document.querySelector('[src="configSlotMachine777theMostUniqueName.js"]').after(e.wrap);
+	document.querySelector('[src$="configSlotMachine777theMostUniqueName.js"]').after(e.wrap);
 	e.spin.onclick = () => {
 		/* http://dougtesting.net/winwheel/docs/tut11_animation_introduction */
 		e.canvas.classList.remove('animateSlotMachine777theMostUniqueName');
