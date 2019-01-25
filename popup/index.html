@@ -10,7 +10,7 @@
 <body style="background:#fff8; font-family: Arial, Helvetica, sans-serif; text-align: center">
 	<div>
 		<h1>
-			<br><span></span>
+			<span></span>
 		</h1>
 		<form action="/" method="get">
 				<div class="tableRow">
@@ -31,6 +31,7 @@
 		const placePopupOnTheCenterPage = () => {
 			const page = document.querySelector('div');
 			page.style.marginTop = `${(window.innerHeight - page.clientHeight) / 2}px`;
+			page.scrollTop = page.scrollHeight
 		}
 		placePopupOnTheCenterPage();
 		window.onresize = placePopupOnTheCenterPage;

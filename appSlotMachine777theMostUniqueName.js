@@ -219,9 +219,14 @@
 		.appSlotMachine777theMostUniqueName div:nth-child(3) {
 			position: absolute;
 			background: white;
-			background: url(${config.pictures.pin});
+			/* background: url(${config.pictures.pin}); */
 			background-size: contain;
+			transform-origin: 50% 0;
+			transition: 100ms;
 			z-index: 2;
+		}
+		.appSlotMachine777theMostUniqueName div:nth-child(3)[data-state="jab"] {
+			transform: rotate(-20deg);
 		}
 
 		/* CANVASWRAPPER */
@@ -375,6 +380,7 @@
 		audio.pause();
 		audio.currentTime = start || 0;
 		audio.play();
+		someFunc();
 		if (end) setTimeout(() => audio.pause(), end);
 
 		/**
@@ -386,19 +392,34 @@
 	};
 
 	const someFunc = () => {
-		console.log('pinTick');
+		e.pin.dataset.state = 'jab';
+		setTimeout(() => {
+			e.pin.dataset.state = '';
+		}, 50);
+	};
+
+	const insertSalute = () => {
+		const salute = document.createElement('iframe');
+		salute.style.cssText = `
+			position: absolute;
+			z-index: 1;
+		`;
+		salute.style.width = `${e.wrap.clientWidth}px`;
+		salute.style.height = `${e.wrap.clientHeight}px`;
+		salute.src = config.salute;
+		e.wrap.append(salute);
 	};
 
 	const alertPrize = () => {
+		insertSalute();
 		const winningSegment = theWheel.getIndicatedSegment();
 		console.log(winningSegment.text);
 		if (config.postType === 'new page') {
 			setTimeout(() => {
-				location.href=`popup/index.html?winningSegment=${winningSegment.text}`;
+				location.href=`${config.contactForm}?winningSegment=${winningSegment.text}`;
 			}, 2000);
-		} else if(config.postType === 'current page') {
+		} else if (config.postType === 'current page') {
 			const modalWindow = document.createElement('iframe');
-			modalWindow.src = `popup/index.html?winningSegment=${winningSegment.text}`;
 			modalWindow.style.cssText = `
 				height: 80%;
 				position: absolute;
@@ -408,7 +429,8 @@
 				z-index: 3;
 				background: #fff8;
 			`;
-			e.canvaswrapper.append(modalWindow);
+			modalWindow.src = `${config.contactForm}?winningSegment=${winningSegment.text}&size=${e.canvaswrapper.clientWidth * 0.8}`;
+			// e.canvaswrapper.append(modalWindow);
 		}
 		playSound(new Audio(config.sounds.afterWheelSpin));
 	};
@@ -418,23 +440,19 @@
 		'responsive': true,
 		'numSegments': config.segments.length,
 		'outerRadius': 150,
-		'imageOverlay': true,
-		'drawText': false,
-		'strokeStyle': '#fff0',
 		'fillStyle': 'transparent',
 		'segments': config.segments,
 		'drawMode': 'image',
 		'animation':
 		{
 			'type': 'spinToStop',
-			'duration': 4,
-			'spins': 16,
-			// 'callbackAfter': someFunc,
+			'duration': 7,
+			'spins': 5,
 			'callbackFinished': alertPrize,
 			'callbackSound': playSound.bind(this, new Audio(config.sounds.segmentTriggers)),
 		},
 		'pins': {
-			'number': 16,
+			'number': 2,
 		},
 	});
 
