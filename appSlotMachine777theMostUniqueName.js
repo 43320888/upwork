@@ -417,7 +417,7 @@
 		if (config.postType === 'new page') {
 			setTimeout(() => {
 				location.href=`${config.contactForm}?winningSegment=${winningSegment.text}`;
-			}, 2000);
+			}, 8000);
 		} else if (config.postType === 'current page') {
 			const modalWindow = document.createElement('iframe');
 			modalWindow.style.cssText = `
