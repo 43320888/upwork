@@ -24,11 +24,11 @@ const configSlotMachine777theMostUniqueName = () => {
 	const pictures = {
 
 		/* Uncomment these links or insert your own links */
-		wrapper: '/* https://hacking.logbook.bizml.ru/upwork/images/Covers.jpg */',
-		title: '/* https://hacking.logbook.bizml.ru/upwork/images/casino.svg */',
-		pin: '/* https://hacking.logbook.bizml.ru/upwork/images/pin.png */',
-		table: '/* https://hacking.logbook.bizml.ru/upwork/images/wheel.png */',
-		spin: '/* https://hacking.logbook.bizml.ru/upwork/images/start_button.png */',
+		wrapper: 'https://hacking.logbook.bizml.ru/upwork/images/Covers.jpg',
+		title: 'https://hacking.logbook.bizml.ru/upwork/images/casino.svg',
+		pin: 'https://hacking.logbook.bizml.ru/upwork/images/pin.png',
+		table: 'https://hacking.logbook.bizml.ru/upwork/images/wheel.png',
+		spin: 'https://hacking.logbook.bizml.ru/upwork/images/start_button.png',
 	};
 
 	const sounds = {
@@ -53,8 +53,8 @@ const configSlotMachine777theMostUniqueName = () => {
 		'win': false forbid
 		 */
 		{ 'text': 'HOTTEST WINGS', 'win': false },
-		{ 'text': 'DINNER FOR TWO', 'win': false },
-		{ 'text': 'DESSERT', 'win': false },
+		{ 'text': 'DINNER FOR TWO', 'win': true },
+		{ 'text': 'DESSERT', 'win': true },
 		{ 'text': '20 percent COUPON', 'win': true },
 		{ 'text': 'SORRY', 'win': false },
 		{ 'text': 'GOLDEN TICKET', 'win': false },
