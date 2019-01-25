@@ -1,0 +1,18 @@
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<body style="background:#111; color:#fff; font-family: Arial, Helvetica, sans-serif">
+	<h1>Hello 🙂
+		<script>(() => {
+				var x = new Date().getTime() + 30000;
+				
+					var j = document.getElementsByTagName('div')[0];
+					var i = new Date().getTime();
+					if (i < x) {
+						j.innerHTML = new Date(x - i).toLocaleTimeString();
+						setTimeout(backTimer, 500);
+					} else {
+						j.innerHTML = "00:00:00";
+					}
+				
+			})()</script>
+	</h1>
+</body>

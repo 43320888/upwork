@@ -1,8 +1,0 @@
-.spin-table {
-	height: 100%;
-	background: #000;
-	background-image: url(images/Covers.jpg);
-}
-.spin-table > div {
-	margin-left: 50%
-}
