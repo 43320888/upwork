@@ -181,7 +181,9 @@
 	e.spin.onclick = () => {
 		e.canvas.classList.remove('animateSlotMachine777theMostUniqueName');
 		e.spin.style.cssText += `cursor: default;
-			background: url(${config.pictures.spinAfterClick});
+			// background: #777;
+			// border: 15px solid #875;
+			// box-sizing: border-box;
 		`;
 		e.spin.onclick = '';
 
