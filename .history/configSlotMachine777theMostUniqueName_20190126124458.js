@@ -30,7 +30,7 @@ const configSlotMachine777theMostUniqueName = () => {
 		pin: 'https://hacking.logbook.bizml.ru/upwork/images/pin.png',
 		table: 'https://hacking.logbook.bizml.ru/upwork/images/wheel.png',
 		spin: 'https://hacking.logbook.bizml.ru/upwork/images/start_button.png',
-		spin: 'https://hacking.logbook.bizml.ru/upwork/images/start_button.png',
+		spinAfterClick: 'https://hacking.logbook.bizml.ru/upwork/images/logo.png',
 	};
 
 	const sounds = {

@@ -2,7 +2,6 @@
 	/* eslint-disable */
 
 	/* TWEENMAX.MIN.JS */
-	/* if(TweenMax !== undefined) alert() */
 	(() => {
 		/*!
 		* VERSION: 2.0.2
@@ -179,9 +178,12 @@
 
 	document.querySelector('[src$="configSlotMachine777theMostUniqueName.js"]').after(e.wrap);
 	e.spin.onclick = () => {
+		/* http://dougtesting.net/winwheel/docs/tut11_animation_introduction */
 		e.canvas.classList.remove('animateSlotMachine777theMostUniqueName');
-		e.spin.style.cssText += `cursor: default;
-			background: url(${config.pictures.spinAfterClick});
+		e.spin.style.cssText += `background: #777;
+			border: 15px solid #875;
+			box-sizing: border-box;
+			cursor: default;
 		`;
 		e.spin.onclick = '';
 
