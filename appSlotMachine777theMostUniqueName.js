@@ -145,7 +145,13 @@
 			var a = 40; "undefined" !== typeof winwheelToDrawDuringAnimation._responsiveMargin && (a = winwheelToDrawDuringAnimation._responsiveMargin); let par = document.querySelector('#canvasSlotMachine777theMostUniqueName').parentElement;
 			var c = par.clientWidth - a, b = winwheelToDrawDuringAnimation._responsiveMinWidth; a = winwheelToDrawDuringAnimation._responsiveMinHeight; c < b ? c = b : c > winwheelToDrawDuringAnimation._originalCanvasWidth && (c = winwheelToDrawDuringAnimation._originalCanvasWidth); c /= winwheelToDrawDuringAnimation._originalCanvasWidth; winwheelToDrawDuringAnimation.canvas.width =
 				winwheelToDrawDuringAnimation._originalCanvasWidth * c; winwheelToDrawDuringAnimation._responsiveScaleHeight && (b = winwheelToDrawDuringAnimation._originalCanvasHeight * c, b < a ? b = a : b > winwheelToDrawDuringAnimation._originalCanvasHeight && (b = winwheelToDrawDuringAnimation._originalCanvasHeight), winwheelToDrawDuringAnimation.canvas.height = b); winwheelToDrawDuringAnimation.scaleFactor = c; winwheelToDrawDuringAnimation.draw();
+				const pin = par.nextElementSibling;
+				const spin = pin.nextElementSibling;
 				par.firstElementChild.style.visibility = '';
+				pin.style.visibility = '';
+				setTimeout(() => {
+					spin.style.visibility = '';
+				}, 777);
 		};
 		return new Winwheel(configJSON);
 	};
@@ -183,16 +189,10 @@
 	e.canvas.style.visibility = 'hidden';
 
 	/* PIN */
+	e.pin.style.visibility = 'hidden';
 
-	/* INSERT WRAPPER */
-	document.querySelector('[src$="configSlotMachine777theMostUniqueName.js"]').after(e.wrap);
-	/* INSERT NODES */
-	e.wrap.prepend(e.h);
-	e.wrap.appendChild(e.canvaswrapper);
-	e.canvaswrapper.appendChild(e.canvas);
-	e.wrap.appendChild(e.pin);
-	e.wrap.appendChild(e.spin);
-
+	/* SPIN */
+	e.spin.style.visibility = 'hidden';
 	e.spin.onclick = () => {
 		e.canvas.classList.remove('animateSlotMachine777theMostUniqueName');
 		e.spin.style.cssText += `cursor: default;
@@ -294,7 +294,15 @@
 			to {transform:rotate(360deg);}
 		}
 	`;
+
+	/* INSERT NODES */
 	document.head.appendChild(e.style);
+	document.querySelector('[src$="configSlotMachine777theMostUniqueName.js"]').after(e.wrap);
+	e.wrap.prepend(e.h);
+	e.wrap.appendChild(e.canvaswrapper);
+	e.canvaswrapper.appendChild(e.canvas);
+	e.wrap.appendChild(e.pin);
+	e.wrap.appendChild(e.spin);
 	/* eslint-disable max-len */
 
 	/* DYNAMIC SIZE */
