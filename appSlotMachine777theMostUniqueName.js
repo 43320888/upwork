@@ -1,8 +1,4 @@
-(({ pin, spin, wrapper }) => {
-	wrapper.style.visibility = '';
-	spin.style.visibility = '';
-	pin.style.visibility = '';
-})((() => {
+(() => {
 	/* eslint-disable */
 
 	/* TWEENMAX.MIN.JS */
@@ -148,7 +144,8 @@
 		function winwheelResize() {
 			var a = 40; "undefined" !== typeof winwheelToDrawDuringAnimation._responsiveMargin && (a = winwheelToDrawDuringAnimation._responsiveMargin); let par = document.querySelector('#canvasSlotMachine777theMostUniqueName').parentElement;
 			var c = par.clientWidth - a, b = winwheelToDrawDuringAnimation._responsiveMinWidth; a = winwheelToDrawDuringAnimation._responsiveMinHeight; c < b ? c = b : c > winwheelToDrawDuringAnimation._originalCanvasWidth && (c = winwheelToDrawDuringAnimation._originalCanvasWidth); c /= winwheelToDrawDuringAnimation._originalCanvasWidth; winwheelToDrawDuringAnimation.canvas.width =
-				winwheelToDrawDuringAnimation._originalCanvasWidth * c; winwheelToDrawDuringAnimation._responsiveScaleHeight && (b = winwheelToDrawDuringAnimation._originalCanvasHeight * c, b < a ? b = a : b > winwheelToDrawDuringAnimation._originalCanvasHeight && (b = winwheelToDrawDuringAnimation._originalCanvasHeight), winwheelToDrawDuringAnimation.canvas.height = b); winwheelToDrawDuringAnimation.scaleFactor = c; winwheelToDrawDuringAnimation.draw()
+				winwheelToDrawDuringAnimation._originalCanvasWidth * c; winwheelToDrawDuringAnimation._responsiveScaleHeight && (b = winwheelToDrawDuringAnimation._originalCanvasHeight * c, b < a ? b = a : b > winwheelToDrawDuringAnimation._originalCanvasHeight && (b = winwheelToDrawDuringAnimation._originalCanvasHeight), winwheelToDrawDuringAnimation.canvas.height = b); winwheelToDrawDuringAnimation.scaleFactor = c; winwheelToDrawDuringAnimation.draw();
+				par.firstElementChild.style.visibility = '';
 		};
 		return new Winwheel(configJSON);
 	};
@@ -183,6 +180,7 @@
 	e.canvas.setAttribute('data-responsiveScaleHeight', 'true');
 	e.canvas.setAttribute('data-responsiveMargin', '0');
 	e.canvas.innerText = 'Canvas not supported, please use another browser.';
+	e.canvas.style.visibility = 'hidden';
 
 	/* PIN */
 
@@ -194,13 +192,6 @@
 	e.canvaswrapper.appendChild(e.canvas);
 	e.wrap.appendChild(e.pin);
 	e.wrap.appendChild(e.spin);
-
-	/* HIDDEN NODES */
-	e.canvaswrapper.style.visibility = 'hidden';
-	e.pin.style.visibility = 'hidden';
-	e.spin.style.visibility = 'hidden';
-
-	/* SPIN */
 
 	e.spin.onclick = () => {
 		e.canvas.classList.remove('animateSlotMachine777theMostUniqueName');
@@ -240,7 +231,7 @@
 		.appSlotMachine777theMostUniqueName div:nth-child(3) {
 			position: absolute;
 			background: white;
-			/* background: url(${config.pictures.pin}); */
+			background: url(${config.pictures.pin});
 			background-size: contain;
 			transform-origin: 50% 0;
 			transition: 100ms;
@@ -503,9 +494,4 @@
 		})();
 		theWheel.animation.stopAngle = stopAt;
 	};
-	return {
-		wrapper: e.canvaswrapper,
-		spin: e.spin,
-		pin: e.pin,
-	}
-})());
+})();
