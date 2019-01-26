@@ -1,8 +1,6 @@
-(({ pin, spin, wrapper }) => {
-	wrapper.style.visibility = '';
-	spin.style.visibility = '';
-	pin.style.visibility = '';
-})((() => {
+(() => {
+	alert();
+}))((() => {
 	/* eslint-disable */
 
 	/* TWEENMAX.MIN.JS */
@@ -188,17 +186,6 @@
 
 	/* INSERT WRAPPER */
 	document.querySelector('[src$="configSlotMachine777theMostUniqueName.js"]').after(e.wrap);
-	/* INSERT NODES */
-	e.wrap.prepend(e.h);
-	e.wrap.appendChild(e.canvaswrapper);
-	e.canvaswrapper.appendChild(e.canvas);
-	e.wrap.appendChild(e.pin);
-	e.wrap.appendChild(e.spin);
-
-	/* HIDDEN NODES */
-	e.canvaswrapper.style.visibility = 'hidden';
-	e.pin.style.visibility = 'hidden';
-	e.spin.style.visibility = 'hidden';
 
 	/* SPIN */
 
@@ -394,6 +381,13 @@
 	window.addEventListener('resize', () => setSize());
 	setSize();
 
+	/* INSERT NODES */
+	e.wrap.prepend(e.h);
+	e.wrap.appendChild(e.canvaswrapper);
+	e.canvaswrapper.appendChild(e.canvas);
+	e.wrap.appendChild(e.pin);
+	e.wrap.appendChild(e.spin);
+
 	/* eslint-enable */
 	/* eslint-disable quote-props */
 
@@ -503,9 +497,4 @@
 		})();
 		theWheel.animation.stopAngle = stopAt;
 	};
-	return {
-		wrapper: e.canvaswrapper,
-		spin: e.spin,
-		pin: e.pin,
-	}
 })());

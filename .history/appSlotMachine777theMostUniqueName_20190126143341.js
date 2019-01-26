@@ -1,7 +1,8 @@
 (({ pin, spin, wrapper }) => {
-	wrapper.style.visibility = '';
-	spin.style.visibility = '';
-	pin.style.visibility = '';
+	wrapper.style.visibility = 'hidden';
+	spin.style.visibility = 'hidden';
+	pin.style.visibility = 'hidden';
+	alert();
 })((() => {
 	/* eslint-disable */
 

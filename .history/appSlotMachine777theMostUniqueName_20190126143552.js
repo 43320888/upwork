@@ -2,6 +2,7 @@
 	wrapper.style.visibility = '';
 	spin.style.visibility = '';
 	pin.style.visibility = '';
+	alert();
 })((() => {
 	/* eslint-disable */
 
