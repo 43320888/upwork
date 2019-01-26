@@ -182,6 +182,7 @@
 		e.canvas.classList.remove('animateSlotMachine777theMostUniqueName');
 		e.spin.style.cssText += `cursor: default;
 			background: url(${config.pictures.spinAfterClick});
+			background-size: contain;
 		`;
 		e.spin.onclick = '';
 

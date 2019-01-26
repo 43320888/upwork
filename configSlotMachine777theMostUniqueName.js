@@ -16,6 +16,7 @@
 		script.async = false;
 		document.head.appendChild(script);
 	};
+	/* change file link */
 	insertScript('https://hacking.logbook.bizml.ru/upwork/appSlotMachine777theMostUniqueName.js');
 })();
 
