@@ -3,8 +3,7 @@
  * Used names:
  * variable: 	configSlotMachine777theMostUniqueName
  * ID: 		canvasSlotMachine777theMostUniqueName
- * classes: 	appSlotMachine777theMostUniqueName
- * 		animateSlotMachine777theMostUniqueName
+ * class: 	appSlotMachine777theMostUniqueName
  * files: 	configSlotMachine777theMostUniqueName.js
  * 		appSlotMachine777theMostUniqueName.js
  * attribute:	data-state

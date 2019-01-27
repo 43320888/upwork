@@ -172,7 +172,6 @@
 
 	/* CANVAS */
 	e.canvas.id = 'canvasSlotMachine777theMostUniqueName';
-	// e.canvas.classList.add('animateSlotMachine777theMostUniqueName');
 	e.canvas.width = 777;
 	e.canvas.height = 777;
 	e.canvas.setAttribute('data-responsiveMinWidth', '100');
