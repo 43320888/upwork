@@ -74,6 +74,12 @@ const configSlotMachine777theMostUniqueName = () => {
 	/* Form Filling Page link */
 	const contactForm = 'https://hacking.logbook.bizml.ru/upwork/popup/index.html';
 
+	/* Other settings */
+	const animationSettings = {
+		duration: 10 /* in seconds */,
+		spins: 5,
+	};
+
 	return {
 		pictures,
 		tableHeight,
@@ -82,5 +88,6 @@ const configSlotMachine777theMostUniqueName = () => {
 		postType,
 		salute,
 		contactForm,
+		animationSettings,
 	};
 };
