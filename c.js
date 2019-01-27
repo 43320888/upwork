@@ -56,12 +56,17 @@ const configSlotMachine777theMostUniqueName = () => {
 		'win': false forbid
 		 */
 		{ 'text': 'HOTTEST WINGS', 'win': false },
-		{ 'text': 'DINNER FOR TWO', 'win': true },
+		{ 'text': 'DINNER FOR TWO', 'win': false },
 		{ 'text': 'DESSERT', 'win': true },
-		{ 'text': '20 percent COUPON', 'win': true },
+		{ 'text': '20 percent COUPON', 'win': false },
 		{ 'text': 'SORRY', 'win': false },
-		{ 'text': 'GOLDEN TICKET', 'win': false },
+		{ 'text': 'GOLDEN TICKET', 'win': true },
 	];
+
+	const animationSettings = {
+		duration: 10,
+		spins: 5,
+	};
 
 	/* Link to the page with a salute.
 	Replace links with your links. */
@@ -82,5 +87,6 @@ const configSlotMachine777theMostUniqueName = () => {
 		postType,
 		salute,
 		contactForm,
+		animationSettings,
 	};
 };
