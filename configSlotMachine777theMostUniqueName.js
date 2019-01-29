@@ -68,7 +68,7 @@ const configSlotMachine777theMostUniqueName = () => {
 
 	/* Form Filling Page
 	re-comment so that the window pops up on the current page */
-	const postType = 'new page' /* 'current page' */;
+	const postType = /* 'new page' */ 'current page';
 
 	/* Form Filling Page link */
 	const contactForm = 'https://hacking.logbook.bizml.ru/upwork/popup/index.html';
