@@ -75,7 +75,7 @@ const configSlotMachine777theMostUniqueName = () => {
 
 
 	/* Other settings */
-	const power = /* 'LOW' *//* 'MED' */'HIGH';
+	const power = 'LOW'/* 'MED' *//* 'HIGH' */;
 
 	return {
 		pictures,

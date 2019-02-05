@@ -70,7 +70,7 @@ const configSlotMachine777theMostUniqueName = () => {
 	const postType = /* 'new page' */ 'current page';
 
 	/* Form Filling Page link */
-	const contactForm = 'popup/index.html';
+	const contactForm = 'http://www.atlanticcity.com';
 
 
 	/* Other settings */
