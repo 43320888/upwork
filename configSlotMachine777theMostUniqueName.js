@@ -3,7 +3,7 @@
  * Used names:
  * variable: 	configSlotMachine777theMostUniqueName
  * ID: 		canvasSlotMachine777theMostUniqueName
- * class: 	appSlotMachine777theMostUniqueName
+ * class:	appSlotMachine777theMostUniqueName
  * files: 	configSlotMachine777theMostUniqueName.js
  * 		appSlotMachine777theMostUniqueName.js
  * attribute:	data-state
@@ -21,14 +21,13 @@
 
 /* CONFIG */
 const configSlotMachine777theMostUniqueName = () => {
-
 	const pictures = {
 
 		/* Uncomment these links or insert your own links */
 		wrapper: 'https://hacking.logbook.bizml.ru/upwork/images/Covers.jpg',
 		title: 'https://hacking.logbook.bizml.ru/upwork/images/casino.svg',
 		pin: 'https://hacking.logbook.bizml.ru/upwork/images/pin.png',
-		table: 'https://hacking.logbook.bizml.ru/upwork/images/wheel.png',
+		table: 'https://hacking.logbook.bizml.ru/upwork/images/wheel_1-min.png',
 		spin: 'https://hacking.logbook.bizml.ru/upwork/images/start_button.png',
 		spinAfterClick: 'https://hacking.logbook.bizml.ru/upwork/images/logo.png',
 	};
@@ -43,10 +42,11 @@ const configSlotMachine777theMostUniqueName = () => {
 	};
 
 	/* Sets the fixed height of the container
-	For example: tableHeight = '100'; mean 100 pixels 
-	tableHeight = '';  mean 100% */
-	const tableHeight = '';
-
+	For example:
+		tableHeight = '140px'; mean 140 pixels (at least 140 pixels)
+		tableHeight = '';  mean fullscreen
+		tableHeight = '80%' mean height is 80% of the width. */
+	const tableHeight = /* '' */'80%'/* '140px' */;
 
 	const segments = [
 
@@ -64,20 +64,21 @@ const configSlotMachine777theMostUniqueName = () => {
 
 	/* Link to the page with a salute.
 	Replace links with your links. */
-	const salute = 'https://hacking.logbook.bizml.ru/upwork/salute/3.html' /* 'https://hacking.logbook.bizml.ru/upwork/salute/5.html' */ /* 'https://hacking.logbook.bizml.ru/upwork/salute/7.html' */;
+	const salute = 'https://hacking.logbook.bizml.ru/upwork/salute/3.html'/* 'https://hacking.logbook.bizml.ru/upwork/salute/5.html' *//* 'https://hacking.logbook.bizml.ru/upwork/salute/7.html' */;
 
 	/* Form Filling Page
 	re-comment so that the window pops up on the current page */
 	const postType = /* 'new page' */ 'current page';
 
+	/* in seconds */
+	const winDelay = 7;
+
 	/* Form Filling Page link */
 	const contactForm = 'https://hacking.logbook.bizml.ru/upwork/popup/index.html';
 
+
 	/* Other settings */
-	const animationSettings = {
-		duration: 10 /* in seconds */,
-		spins: 5,
-	};
+	const power = 'LOW'/* 'MED' *//* 'HIGH' */;
 
 	return {
 		pictures,
@@ -88,5 +89,6 @@ const configSlotMachine777theMostUniqueName = () => {
 		salute,
 		contactForm,
 		animationSettings,
+		winDelay,
 	};
 };
