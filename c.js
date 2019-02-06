@@ -7,6 +7,8 @@
  * files: 	configSlotMachine777theMostUniqueName.js
  * 		appSlotMachine777theMostUniqueName.js
  * attribute:	data-state
+ * cookies:	jackpot
+ * 		name
  */
 (() => {
 	const insertScript = (src) => {
@@ -27,7 +29,7 @@ const configSlotMachine777theMostUniqueName = () => {
 		wrapper: 'images/Covers.jpg',
 		title: 'images/casino.svg',
 		pin: 'images/pin.png',
-		table: 'images/wheel.png',
+		table: 'images/wheel_1-min.png',
 		spin: 'images/start_button.png',
 		spinAfterClick: 'images/logo.png',
 	};
@@ -69,8 +71,11 @@ const configSlotMachine777theMostUniqueName = () => {
 	re-comment so that the window pops up on the current page */
 	const postType = /* 'new page' */ 'current page';
 
+	/* in seconds */
+	const winDelay = 7;
+
 	/* Form Filling Page link */
-	const contactForm = 'http://www.atlanticcity.com';
+	const contactForm = 'popup/index2.html';
 
 
 	/* Other settings */
@@ -85,5 +90,6 @@ const configSlotMachine777theMostUniqueName = () => {
 		salute,
 		contactForm,
 		power,
+		winDelay,
 	};
 };

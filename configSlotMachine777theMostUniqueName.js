@@ -27,7 +27,7 @@ const configSlotMachine777theMostUniqueName = () => {
 		wrapper: 'https://hacking.logbook.bizml.ru/upwork/images/Covers.jpg',
 		title: 'https://hacking.logbook.bizml.ru/upwork/images/casino.svg',
 		pin: 'https://hacking.logbook.bizml.ru/upwork/images/pin.png',
-		table: 'https://hacking.logbook.bizml.ru/upwork/images/wheel.png',
+		table: 'https://hacking.logbook.bizml.ru/upwork/images/wheel_1-min.png',
 		spin: 'https://hacking.logbook.bizml.ru/upwork/images/start_button.png',
 		spinAfterClick: 'https://hacking.logbook.bizml.ru/upwork/images/logo.png',
 	};
@@ -70,6 +70,9 @@ const configSlotMachine777theMostUniqueName = () => {
 	re-comment so that the window pops up on the current page */
 	const postType = /* 'new page' */ 'current page';
 
+	/* in seconds */
+	const winDelay = 7;
+
 	/* Form Filling Page link */
 	const contactForm = 'https://hacking.logbook.bizml.ru/upwork/popup/index.html';
 
@@ -86,5 +89,6 @@ const configSlotMachine777theMostUniqueName = () => {
 		salute,
 		contactForm,
 		animationSettings,
+		winDelay,
 	};
 };
