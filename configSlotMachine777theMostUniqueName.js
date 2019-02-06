@@ -88,7 +88,7 @@ const configSlotMachine777theMostUniqueName = () => {
 		postType,
 		salute,
 		contactForm,
-		animationSettings,
+		power,
 		winDelay,
 	};
 };
