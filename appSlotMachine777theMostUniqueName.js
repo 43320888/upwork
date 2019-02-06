@@ -194,7 +194,7 @@ const config = configSlotMachine777theMostUniqueName();
 let cookieState = 1; /* 1 — not used; 2 — prize given; 3 — received prize */
 /* eslint-disable */
 if (getCookie('name')) cookieState++;
-if (getCookie('pot')) cookieState++;
+if (getCookie('jackpot')) cookieState++;
 if (cookieState > 1) config.postType = 'current page';
 /* eslint-enable */
 
@@ -505,7 +505,7 @@ if (cookieState === 2) insertPopup();
 const alertPrize = () => {
 	insertSalute();
 	/* eslint-disable-next-line no-undef */
-	setCookie('pot', theWheel.getIndicatedSegment().text);
+	setCookie('jackpot', theWheel.getIndicatedSegment().text);
 
 	// const winningSegment = theWheel.getIndicatedSegment();
 	setTimeout(() => {
@@ -515,7 +515,7 @@ const alertPrize = () => {
 		} else if (config.postType === 'current page') {
 			insertPopup();
 		}
-	}, 8000);
+	}, config.winDelay * 1000);
 	playSound(pop.after);
 };
 

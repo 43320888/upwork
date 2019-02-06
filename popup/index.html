@@ -12,23 +12,24 @@
 		<h1>
 			<span></span>
 		</h1>
-			<div class="tableRow">
-				<input type="text" id="name" name="name" value="" placeholder="Name" required>
-			</div>
-			<div class="tableRow">
-				<input type="text" id="email" name="email" value="" placeholder="Email" required>
-			</div>
-			<div class="tableRow" style="visibility:hidden">
-				<input type="text" id="pot" name="pot" placeholder="Los Angeles" required>
-			</div>
-			<div class="tableRow">
-				<input type="submit" value="Get it Now">
-			</div>
+		<form action="http://atlanticcity.com/list/subscribe" method="POST" accept-charset="utf-8">
+			<label for="name">Name</label><br />
+			<input type="text" name="name" id="name" />
+			<br />
+			<label for="email">Email</label><br />
+			<input type="email" name="email" id="email" />
+			<br />
+			<input type="hidden" name="list" value="leIN1VJlSIeZZUqNqxCAcA" />
+			<br />
+			<input type="hidden" id="jackpot" name="jackpot">
+			<br />
+			<input type="submit" name="submit" id="submit" />
+		</form>
 	</div>
 	<script>
-		const potCookie = getCookie('pot');
-		document.querySelector('h1').insertAdjacentHTML('afterbegin', `Congratulations!<br>${potCookie}<br>`);
-		document.getElementById('pot').value = potCookie;
+		const jackpotCookie = getCookie('jackpot');
+		document.querySelector('h1').insertAdjacentHTML('afterbegin', `Congratulations!<br>${jackpotCookie}<br>`);
+		document.getElementById('jackpot').value = jackpotCookie;
 	</script>
 	<script>
 		const placePopupOnTheCenterPage = () => {
@@ -40,16 +41,16 @@
 		window.onresize = placePopupOnTheCenterPage;
 	</script>
 	<script>
-	document.body.firstElementChild.lastElementChild.onclick = () => {
-		const json = {
-			name: document.querySelector('#name').value,
-			email: document.querySelector('#email').value,
-			pot: document.querySelector('#pot').value
+		document.body.firstElementChild.lastElementChild.onclick = () => {
+			const json = {
+				name: document.querySelector('#name').value,
+				email: document.querySelector('#email').value,
+				jackpot: document.querySelector('#jackpot').value
+			}
+			$.post("http://f0272093.xsph.ru.xsph.ru/insertDB/phpmysqlinsert.php", json, function (data) {
+				document.body.firstElementChild.innerHTML = `<h1>Submitted</h1><div>${data}</div>`;
+				setCookie('name', true);
+			});
 		}
-		$.post("http://f0272093.xsph.ru.xsph.ru/insertDB/phpmysqlinsert.php", json, function( data ) {
-			document.body.firstElementChild.innerHTML = `<h1>Submitted</h1><div>${data}</div>`;
-			setCookie('name', true);
-		});
-	}
-</script>
-</body> 
+	</script>
+</body>
