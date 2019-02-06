@@ -53,12 +53,18 @@ const configSlotMachine777theMostUniqueName = () => {
 		'win': true setting Winning Prizes
 		'win': false forbid
 		 */
-		{ 'text': 'HOTTEST WINGS', 'win': false },
-		{ 'text': 'DINNER FOR TWO', 'win': true },
-		{ 'text': 'DESSERT', 'win': true },
-		{ 'text': '20 percent COUPON', 'win': true },
-		{ 'text': 'SORRY', 'win': false },
-		{ 'text': 'GOLDEN TICKET', 'win': false },
+		{ 'text': 'Orlando 3 nights', 'win': true },
+		{ 'text': 'Mazatlan 5 nights', 'win': true },
+		{ 'text': 'Mazatlan 5 nights', 'win': true },
+		{ 'text': 'Daythona beach 3 nights', 'win': true },
+		{ 'text': 'Daythona beach 3 nights', 'win': true },
+		{ 'text': 'Nuevo Vallarta 5 nights', 'win': false },
+		{ 'text': 'Cancun 5 nights', 'win': false },
+		{ 'text': 'Myrtle Beach 3 nights', 'win': true },
+		{ 'text': 'Puerto Penasca 5 nights', 'win': false },
+		{ 'text': 'Las Vegas 3 nights', 'win': false },
+		{ 'text': 'Acapulco 5 nights', 'win': false },
+		{ 'text': 'Orlando 3 nights', 'win': true },
 	];
 
 	/* Link to the page with a salute.
