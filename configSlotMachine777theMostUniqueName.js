@@ -32,13 +32,12 @@ const configSlotMachine777theMostUniqueName = () => {
 		spinAfterClick: 'https://hacking.logbook.bizml.ru/upwork/images/logo.png',
 	};
 
-	const sounds = {
+	const pop = {
 
 		/* These samples are downloaded from a sound hosting. Put your own if you want */
-		whileWheelSpin: 'https://hacking.logbook.bizml.ru/upwork/sounds/Kids_Music_3.mp3',
-		afterWheelSpin: 'https://hacking.logbook.bizml.ru/upwork/sounds/clap4.mp3',
-		segmentTriggers: 'https://hacking.logbook.bizml.ru/upwork/sounds/tick.mp3',
-		pinTriggers: '',
+		while: 'sounds/Kids_Music_3.mp3',
+		after: 'sounds/clap4.mp3',
+		segment: 'sounds/tick.mp3',
 	};
 
 	/* Sets the fixed height of the container
@@ -84,7 +83,7 @@ const configSlotMachine777theMostUniqueName = () => {
 		pictures,
 		tableHeight,
 		segments,
-		sounds,
+		pop,
 		postType,
 		salute,
 		contactForm,
