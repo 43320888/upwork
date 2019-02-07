@@ -7,6 +7,8 @@
  * files: 	configSlotMachine777theMostUniqueName.js
  * 		appSlotMachine777theMostUniqueName.js
  * attribute:	data-state
+ * cookies:	jackpot
+ * 		name
  */
 (() => {
 	const insertScript = (src) => {
@@ -45,7 +47,7 @@ const configSlotMachine777theMostUniqueName = () => {
 		tableHeight = '140px'; mean 140 pixels (at least 140 pixels)
 		tableHeight = '';  mean fullscreen
 		tableHeight = '80%' mean height is 80% of the width. */
-	const tableHeight = /* '' */'80%'/* '140px' */;
+	const tableHeight = /* '' */'50%'/* '140px' */;
 
 	const segments = [
 
@@ -66,6 +68,10 @@ const configSlotMachine777theMostUniqueName = () => {
 		{ 'text': 'Acapulco 5 nights', 'win': false },
 		{ 'text': 'Orlando 3 nights', 'win': true },
 	];
+
+	const title = /* true */false;
+
+	const prestartSpinning = true/* false */;
 
 	/* Link to the page with a salute.
 	Replace links with your links. */
@@ -95,5 +101,7 @@ const configSlotMachine777theMostUniqueName = () => {
 		contactForm,
 		power,
 		winDelay,
+		title,
+		prestartSpinning,
 	};
 };

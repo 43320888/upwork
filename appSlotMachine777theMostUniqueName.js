@@ -203,11 +203,12 @@ const e = {
 	wrap: document.createElement('div'),
 	canvaswrapper: document.createElement('div'),
 	canvas: document.createElement('canvas'),
-	h: document.createElement('div'),
 	pin: document.createElement('div'),
 	spin: document.createElement('div'),
 	style: document.createElement('style'),
 };
+
+if (config.title) e.h = document.createElement('div');
 
 /* WRAPPER */
 e.wrap.classList.add('appSlotMachine777theMostUniqueName');
@@ -228,8 +229,9 @@ e.canvas.style.visibility = 'hidden';
 
 /* PIN */
 e.pin.style.visibility = 'hidden';
+let pinCSS = 2;
+if (config.title) pinCSS++;
 
-/*  */ /*  */ /*  */ /*  */ /*  */
 /* SPIN */
 if (cookieState === 1) {
 	e.spin.style.visibility = 'hidden';
@@ -273,6 +275,8 @@ if (cookieState === 1) {
 		/* eslint-enable no-use-before-define */
 	};
 }
+let spinCSS = 3;
+if (config.title) spinCSS++;
 
 /* STYLE */
 e.style.type = 'text/css';
@@ -280,7 +284,7 @@ e.style.innerHTML = `
 		/* WRAPPER */
 		.appSlotMachine777theMostUniqueName {
 			position: relative;
-			background: #777;
+			background: #7770;
 			background: url(${config.pictures.wrapper});
 			background-position-x: center;
 		}
@@ -296,7 +300,7 @@ e.style.innerHTML = `
 		}
 
 		/* PIN */
-		.appSlotMachine777theMostUniqueName div:nth-child(3) {
+		.appSlotMachine777theMostUniqueName div:nth-child(${pinCSS}) {
 			position: absolute;
 			background: white;
 			background: url(${config.pictures.pin});
@@ -305,7 +309,7 @@ e.style.innerHTML = `
 			transition: 100ms;
 			z-index: 2;
 		}
-		.appSlotMachine777theMostUniqueName div:nth-child(3)[data-state="jab"] {
+		.appSlotMachine777theMostUniqueName div:nth-child(${pinCSS})[data-state="jab"] {
 			transform: rotate(-20deg);
 		}
 
@@ -318,11 +322,12 @@ e.style.innerHTML = `
 		/* CANVAS */
 		.appSlotMachine777theMostUniqueName #canvasSlotMachine777theMostUniqueName {
 			z-index: 1;
+			background: #ec80;
 			border-radius: 50%;
 		}
 
 		/* SPIN */
-		.appSlotMachine777theMostUniqueName div:nth-child(4) {
+		.appSlotMachine777theMostUniqueName div:nth-child(${spinCSS}) {
 			position: absolute;
 			border-radius: 50%;
 			z-index: 2;
@@ -330,7 +335,7 @@ e.style.innerHTML = `
 			background: url(${config.pictures.spin});
 			background-size: contain;
 		}
-		.appSlotMachine777theMostUniqueName div:nth-child(4):hover {
+		.appSlotMachine777theMostUniqueName div:nth-child(${spinCSS}):hover {
 			cursor: pointer;
 		}
 
@@ -339,12 +344,11 @@ e.style.innerHTML = `
 /* INSERT NODES */
 document.head.appendChild(e.style);
 document.querySelector('[src$="configSlotMachine777theMostUniqueName.js"]').after(e.wrap);
-e.wrap.prepend(e.h);
+if (config.title) e.wrap.prepend(e.h);
 e.wrap.appendChild(e.canvaswrapper);
 e.canvaswrapper.appendChild(e.canvas);
 e.wrap.appendChild(e.pin);
 
-/*  */ /*  */ /*  */ /*  */ /*  */
 if (cookieState === 1) e.wrap.appendChild(e.spin);
 /* eslint-disable max-len */
 
@@ -391,9 +395,11 @@ function setSize() {
 	e.wrap.style.height = `${sizes.wrapper.h}px`;
 
 	/* TITLE */
-	e.h.style.top = `${sizes.wrapper.h / 20}px`;
-	e.h.style.width = `${sizes.wrapper.w}px`;
-	e.h.style.height = `${sizes.wrapper.h / 10}px`;
+	if (config.title) {
+		e.h.style.top = `${sizes.wrapper.h / 20}px`;
+		e.h.style.width = `${sizes.wrapper.w}px`;
+		e.h.style.height = `${sizes.wrapper.h / 10}px`;
+	}
 
 	/* CANVASWRAPPER */
 	if (sizes.wrapper.w > sizes.wrapper.h || sizes.wrapper.w * 100 / sizes.wrapper.h > 80) {
@@ -405,6 +411,9 @@ function setSize() {
 		sizes.canvasWrapper.t = sizes.wrapper.h * 0.1 + (sizes.wrapper.h / 2 - sizes.canvasWrapper.w / 2);
 		sizes.canvasWrapper.l = sizes.wrapper.w / 2 - sizes.canvasWrapper.w / 2;
 	}
+
+	if (!config.title) sizes.canvasWrapper.t = (sizes.wrapper.h - sizes.canvasWrapper.w) / 1.5;
+
 	e.canvaswrapper.style.width = `${sizes.canvasWrapper.w}px`;
 	e.canvaswrapper.style.top = `${sizes.canvasWrapper.t}px`;
 	e.canvaswrapper.style.left = `${sizes.canvasWrapper.l}px`;
@@ -415,12 +424,13 @@ function setSize() {
 	sizes.pin.t = sizes.canvasWrapper.t - sizes.canvasWrapper.w / 10;
 	sizes.pin.l = sizes.canvasWrapper.l + sizes.canvasWrapper.w / 2 - sizes.pin.w / 2;
 
+	if (!config.title) sizes.pin.t = sizes.canvasWrapper.t - sizes.pin.h / 2;
+
 	e.pin.style.width = `${sizes.pin.w}px`;
 	e.pin.style.height = `${sizes.pin.h}px`;
 	e.pin.style.top = `${sizes.pin.t}px`;
 	e.pin.style.left = `${sizes.pin.l}px`;
 
-	/*  */ /*  */ /*  */ /*  */ /*  */
 	/* SPIN */
 	if (cookieState === 1) {
 		sizes.spin.w = sizes.canvasWrapper.w / 3;
@@ -505,7 +515,11 @@ if (cookieState === 2) insertPopup();
 const alertPrize = () => {
 	insertSalute();
 	/* eslint-disable-next-line no-undef */
-	setCookie('jackpot', theWheel.getIndicatedSegment().text);
+	setCookie('jackpot', theWheel.getIndicatedSegment().text, {
+		/* eslint-disable-next-line no-restricted-globals */
+		domain: location.hostname,
+		path: '/',
+	});
 
 	// const winningSegment = theWheel.getIndicatedSegment();
 	setTimeout(() => {
@@ -562,7 +576,7 @@ function playGame() {
 			callbackSound: () => playSound(pop.segment, 1),
 
 		};
-
+		if (!config.prestartSpinning) a.duration = 0;
 		setAndStartTheWheel(w, a);
 
 		e.canvas.style.visibility = '';
