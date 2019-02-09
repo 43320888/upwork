@@ -18,7 +18,7 @@
 		document.head.appendChild(script);
 	};
 	/* Change file link */
-	insertScript('appSlotMachine777theMostUniqueName.js');
+	insertScript('appSlotMachine777theMostUniqueName.js?v=1');
 })();
 
 /* CONFIG */
@@ -26,20 +26,20 @@ const configSlotMachine777theMostUniqueName = () => {
 	const pictures = {
 
 		/* Uncomment these links or insert your own links */
-		wrapper: 'images/Covers.jpg',
-		title: 'images/casino.svg',
-		pin: 'images/pin.png',
-		table: 'images/wheel_1-min.png',
-		spin: 'images/start_button.png',
-		spinAfterClick: 'images/logo.png',
+		wrapper: 'images/Covers.jpg?v=1',
+		title: 'images/casino.svg?v=1',
+		pin: 'images/pin.png?v=1',
+		table: 'images/wheel_1-min.png?v=1',
+		spin: 'images/start_button.png?v=1',
+		spinAfterClick: 'images/logo.png?v=1',
 	};
 
 	const pop = {
 
 		/* These samples are downloaded from a sound hosting. Put your own if you want */
-		while: 'sounds/Kids_Music_3.mp3',
-		after: 'sounds/clap4.mp3',
-		segment: 'sounds/tick.mp3',
+		while: 'sounds/ticks10s.mp3?v=1',
+		after: '/* sounds/clap4.mp3?v=1 */',
+		segment: '/* sounds/tick.mp3?v=1 */',
 	};
 
 	/* Sets the fixed height of the container
@@ -47,7 +47,7 @@ const configSlotMachine777theMostUniqueName = () => {
 		tableHeight = '140px'; mean 140 pixels (at least 140 pixels)
 		tableHeight = '';  mean fullscreen
 		tableHeight = '80%' mean height is 80% of the width. */
-	const tableHeight = ''/* '80%' *//* '140px' */;
+	const tableHeight = ''/* '50%' *//* '140px' */;
 
 	const segments = [
 
@@ -69,6 +69,10 @@ const configSlotMachine777theMostUniqueName = () => {
 		{ 'text': 'Orlando 3 nights', 'win': true },
 	];
 
+	const title = /* true */false;
+
+	const prestartSpinning = /* true */false;
+
 	/* Link to the page with a salute.
 	Replace links with your links. */
 	const salute = 'salute/3.html'/* 'salute/5.html' *//* 'salute/7.html' */;
@@ -81,7 +85,9 @@ const configSlotMachine777theMostUniqueName = () => {
 	const winDelay = 7;
 
 	/* Form Filling Page link */
-	const contactForm = 'popup/index2.html';
+	const contactForm = 'popup/index.html?v=1';
+
+	const popupSize = 0.5;
 
 
 	/* Other settings */
@@ -97,5 +103,8 @@ const configSlotMachine777theMostUniqueName = () => {
 		contactForm,
 		power,
 		winDelay,
+		title,
+		prestartSpinning,
+		popupSize,
 	};
 };

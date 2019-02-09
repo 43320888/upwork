@@ -7,6 +7,8 @@
  * files: 	configSlotMachine777theMostUniqueName.js
  * 		appSlotMachine777theMostUniqueName.js
  * attribute:	data-state
+ * cookies:	jackpot
+ * 		name
  */
 (() => {
 	const insertScript = (src) => {
@@ -16,7 +18,7 @@
 		document.head.appendChild(script);
 	};
 	/* Change file link */
-	insertScript('https://hacking.logbook.bizml.ru/upwork/appSlotMachine777theMostUniqueName.js');
+	insertScript('https://hacking.logbook.bizml.ru/upwork/appSlotMachine777theMostUniqueName.js?v=1');
 })();
 
 /* CONFIG */
@@ -24,20 +26,20 @@ const configSlotMachine777theMostUniqueName = () => {
 	const pictures = {
 
 		/* Uncomment these links or insert your own links */
-		wrapper: 'https://hacking.logbook.bizml.ru/upwork/images/Covers.jpg',
-		title: 'https://hacking.logbook.bizml.ru/upwork/images/casino.svg',
-		pin: 'https://hacking.logbook.bizml.ru/upwork/images/pin.png',
-		table: 'https://hacking.logbook.bizml.ru/upwork/images/wheel_1-min.png',
-		spin: 'https://hacking.logbook.bizml.ru/upwork/images/start_button.png',
-		spinAfterClick: 'https://hacking.logbook.bizml.ru/upwork/images/logo.png',
+		wrapper: '/* https://hacking.logbook.bizml.ru/upwork/images/Covers.jpg?v=1 */',
+		title: 'https://hacking.logbook.bizml.ru/upwork/images/casino.svg?v=1',
+		pin: 'https://hacking.logbook.bizml.ru/upwork/images/pin.png?v=1',
+		table: 'https://hacking.logbook.bizml.ru/upwork/images/wheel_1-min.png?v=1',
+		spin: 'https://hacking.logbook.bizml.ru/upwork/images/start_button.png?v=1',
+		spinAfterClick: 'https://hacking.logbook.bizml.ru/upwork/images/logo.png?v=1',
 	};
 
 	const pop = {
 
 		/* These samples are downloaded from a sound hosting. Put your own if you want */
-		while: 'sounds/Kids_Music_3.mp3',
-		after: 'sounds/clap4.mp3',
-		segment: 'sounds/tick.mp3',
+		while: 'https://hacking.logbook.bizml.ru/upwork/sounds/ticks10s.mp3?v=1',
+		after: '/* https://hacking.logbook.bizml.ru/upwork/sounds/clap4.mp3?v=1 */',
+		segment: '/* https://hacking.logbook.bizml.ru/upwork/sounds/tick.mp3?v=1 */',
 	};
 
 	/* Sets the fixed height of the container
@@ -45,7 +47,7 @@ const configSlotMachine777theMostUniqueName = () => {
 		tableHeight = '140px'; mean 140 pixels (at least 140 pixels)
 		tableHeight = '';  mean fullscreen
 		tableHeight = '80%' mean height is 80% of the width. */
-	const tableHeight = /* '' */'80%'/* '140px' */;
+	const tableHeight = /* '' */'50%'/* '140px' */;
 
 	const segments = [
 
@@ -67,9 +69,13 @@ const configSlotMachine777theMostUniqueName = () => {
 		{ 'text': 'Orlando 3 nights', 'win': true },
 	];
 
+	const title = /* true */false;
+
+	const prestartSpinning = true/* false */;
+
 	/* Link to the page with a salute.
 	Replace links with your links. */
-	const salute = 'https://hacking.logbook.bizml.ru/upwork/salute/3.html'/* 'https://hacking.logbook.bizml.ru/upwork/salute/5.html' *//* 'https://hacking.logbook.bizml.ru/upwork/salute/7.html' */;
+	const salute = 'https://hacking.logbook.bizml.ru/upwork/salute/3.html?v=1'/* 'https://hacking.logbook.bizml.ru/upwork/salute/5.html?v=1' *//* 'https://hacking.logbook.bizml.ru/upwork/salute/7.html?v=1' */;
 
 	/* Form Filling Page
 	re-comment so that the window pops up on the current page */
@@ -79,8 +85,9 @@ const configSlotMachine777theMostUniqueName = () => {
 	const winDelay = 7;
 
 	/* Form Filling Page link */
-	const contactForm = 'https://hacking.logbook.bizml.ru/upwork/popup/index.html';
+	const contactForm = 'https://hacking.logbook.bizml.ru/upwork/popup/index.html?v=1';
 
+	const popupSize = 0.7;
 
 	/* Other settings */
 	const power = 'LOW'/* 'MED' *//* 'HIGH' */;
@@ -95,5 +102,8 @@ const configSlotMachine777theMostUniqueName = () => {
 		contactForm,
 		power,
 		winDelay,
+		title,
+		prestartSpinning,
+		popupSize,
 	};
 };
