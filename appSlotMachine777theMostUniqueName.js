@@ -275,8 +275,8 @@ if (cookieState === 1) {
 		/* eslint-enable no-use-before-define */
 	};
 }
-let spinCSS = 3;
-if (config.title) spinCSS++;
+let sPinCSS = 3;
+if (config.title) sPinCSS++;
 
 /* STYLE */
 e.style.type = 'text/css';
@@ -327,7 +327,7 @@ e.style.innerHTML = `
 		}
 
 		/* SPIN */
-		.appSlotMachine777theMostUniqueName div:nth-child(${spinCSS}) {
+		.appSlotMachine777theMostUniqueName div:nth-child(${sPinCSS}) {
 			position: absolute;
 			border-radius: 50%;
 			z-index: 2;
@@ -335,7 +335,7 @@ e.style.innerHTML = `
 			background: url(${config.pictures.spin});
 			background-size: contain;
 		}
-		.appSlotMachine777theMostUniqueName div:nth-child(${spinCSS}):hover {
+		.appSlotMachine777theMostUniqueName div:nth-child(${sPinCSS}):hover {
 			cursor: pointer;
 		}
 
@@ -343,7 +343,7 @@ e.style.innerHTML = `
 
 /* INSERT NODES */
 document.head.appendChild(e.style);
-document.querySelector('[src$="configSlotMachine777theMostUniqueName.js"]').after(e.wrap);
+document.querySelector('[src*="configSlotMachine777theMostUniqueName.js"]').after(e.wrap);
 if (config.title) e.wrap.prepend(e.h);
 e.wrap.appendChild(e.canvaswrapper);
 e.canvaswrapper.appendChild(e.canvas);
@@ -381,7 +381,7 @@ function setSize() {
 	sizes.wrapper.w = e.wrap.clientWidth;
 	switch (Boolean(config.tableHeight)) {
 		case true:
-			if (config.tableHeight.includes('%')) sizes.wrapper.h = sizes.wrapper.w * `0.${Number.parseInt(config.tableHeight, 10)}`;
+			if (config.tableHeight.includes('%')) sizes.wrapper.h = sizes.wrapper.w * Number.parseInt(config.tableHeight, 10) / 100;
 			else sizes.wrapper.h = config.tableHeight;
 			break;
 		default:
@@ -403,17 +403,18 @@ function setSize() {
 
 	/* CANVASWRAPPER */
 	if (sizes.wrapper.w > sizes.wrapper.h || sizes.wrapper.w * 100 / sizes.wrapper.h > 80) {
+		if (config.title) sizes.canvasWrapper.w = sizes.wrapper.h * 0.7;
+		else sizes.canvasWrapper.w = sizes.wrapper.h * 0.9;
+		if (sizes.canvasWrapper.w > 777) sizes.canvasWrapper.w = 777;
 		sizes.canvasWrapper.t = sizes.wrapper.h * 0.25;
-		sizes.canvasWrapper.w = sizes.wrapper.h * 0.7;
-		sizes.canvasWrapper.l = sizes.wrapper.w / 2 - sizes.wrapper.h * 0.7 / 2;
 	} else {
-		sizes.canvasWrapper.w = sizes.wrapper.w * 0.9;
+		if (config.title) sizes.canvasWrapper.w = sizes.wrapper.w * 0.9;
+		else sizes.canvasWrapper.w = sizes.wrapper.w;
+		if (sizes.canvasWrapper.w > 777) sizes.canvasWrapper.w = 777;
 		sizes.canvasWrapper.t = sizes.wrapper.h * 0.1 + (sizes.wrapper.h / 2 - sizes.canvasWrapper.w / 2);
-		sizes.canvasWrapper.l = sizes.wrapper.w / 2 - sizes.canvasWrapper.w / 2;
 	}
-
-	if (!config.title) sizes.canvasWrapper.t = (sizes.wrapper.h - sizes.canvasWrapper.w) / 1.5;
-
+	if (!config.title) sizes.canvasWrapper.t = sizes.canvasWrapper.w / 10;
+	sizes.canvasWrapper.l = sizes.wrapper.w / 2 - sizes.canvasWrapper.w / 2;
 	e.canvaswrapper.style.width = `${sizes.canvasWrapper.w}px`;
 	e.canvaswrapper.style.top = `${sizes.canvasWrapper.t}px`;
 	e.canvaswrapper.style.left = `${sizes.canvasWrapper.l}px`;
@@ -423,9 +424,7 @@ function setSize() {
 	sizes.pin.h = sizes.pin.w;
 	sizes.pin.t = sizes.canvasWrapper.t - sizes.canvasWrapper.w / 10;
 	sizes.pin.l = sizes.canvasWrapper.l + sizes.canvasWrapper.w / 2 - sizes.pin.w / 2;
-
 	if (!config.title) sizes.pin.t = sizes.canvasWrapper.t - sizes.pin.h / 2;
-
 	e.pin.style.width = `${sizes.pin.w}px`;
 	e.pin.style.height = `${sizes.pin.h}px`;
 	e.pin.style.top = `${sizes.pin.t}px`;
@@ -498,13 +497,12 @@ const insertSalute = () => {
 const insertPopup = () => {
 	const modalWindow = document.createElement('iframe');
 	modalWindow.style.cssText = `
-			height: 80%;
+			height: ${config.popupSize * 100}%;
 			position: absolute;
-			top: 10%;
-			left: 10%;
-			width: 80%;
+			top: ${(100 - config.popupSize * 100) / 2}%;
+			left: ${(100 - config.popupSize * 100) / 2}%;
+			width: ${config.popupSize * 100}%;
 			z-index: 3;
-			background: #fff8;
 		`;
 	modalWindow.src = config.contactForm;
 	modalWindow.frameBorder = 0;
@@ -514,14 +512,14 @@ if (cookieState === 2) insertPopup();
 
 const alertPrize = () => {
 	insertSalute();
-	/* eslint-disable-next-line no-undef */
+
+	/* eslint-disable no-undef, no-restricted-globals */
 	setCookie('jackpot', theWheel.getIndicatedSegment().text, {
-		/* eslint-disable-next-line no-restricted-globals */
 		domain: location.hostname,
 		path: '/',
 	});
+	/* eslint-enable no-undef, no-restricted-globals */
 
-	// const winningSegment = theWheel.getIndicatedSegment();
 	setTimeout(() => {
 		if (config.postType === 'new page') {
 			/* eslint-disable-next-line no-restricted-globals */
