@@ -18,7 +18,7 @@
 		document.head.appendChild(script);
 	};
 	/* Change file link */
-	insertScript('appSlotMachine777theMostUniqueName.js?v=1');
+	insertScript('appSlotMachine777theMostUniqueName.js?v=1.1');
 })();
 
 /* CONFIG */
@@ -26,20 +26,20 @@ const configSlotMachine777theMostUniqueName = () => {
 	const pictures = {
 
 		/* Uncomment these links or insert your own links */
-		wrapper: 'images/Covers.jpg?v=1',
-		title: 'images/casino.svg?v=1',
-		pin: 'images/pin.png?v=1',
-		table: 'images/wheel_1-min.png?v=1',
-		spin: 'images/start_button.png?v=1',
-		spinAfterClick: 'images/logo.png?v=1',
+		wrapper: 'images/Covers.jpg?v=1.1',
+		title: 'images/casino.svg?v=1.1',
+		pin: 'images/pin.png?v=1.1',
+		table: 'images/wheel_1-min.png?v=1.1',
+		spin: 'images/start_button.png?v=1.1',
+		spinAfterClick: 'images/logo.png?v=1.1',
 	};
 
 	const pop = {
 
 		/* These samples are downloaded from a sound hosting. Put your own if you want */
-		while: 'sounds/ticks10s.mp3?v=1',
-		after: '/* sounds/clap4.mp3?v=1 */',
-		segment: '/* sounds/tick.mp3?v=1 */',
+		while: 'sounds/ticks10s.mp3?v=1.1',
+		after: '/* sounds/clap4.mp3?v=1.1 */',
+		segment: '/* sounds/tick.mp3?v=1.1 */',
 	};
 
 	/* Sets the fixed height of the container
@@ -75,7 +75,7 @@ const configSlotMachine777theMostUniqueName = () => {
 
 	/* Link to the page with a salute.
 	Replace links with your links. */
-	const salute = 'salute/3.html'/* 'salute/5.html' *//* 'salute/7.html' */;
+	const salute = 'salute/3.html?v=1.1'/* 'salute/5.html?v=1.1' *//* 'salute/7.html?v=1.1' */;
 
 	/* Form Filling Page
 	re-comment so that the window pops up on the current page */
@@ -85,10 +85,11 @@ const configSlotMachine777theMostUniqueName = () => {
 	const winDelay = 7;
 
 	/* Form Filling Page link */
-	const contactForm = 'popup/index.html?v=1';
+	const contactForm = 'popup/index.html?v=1.1';
 
+	const canvasSize = 777;
 	const popupSize = 0.5;
-
+	const sPinSize = 0.24;
 
 	/* Other settings */
 	const power = 'LOW'/* 'MED' *//* 'HIGH' */;
@@ -105,6 +106,8 @@ const configSlotMachine777theMostUniqueName = () => {
 		winDelay,
 		title,
 		prestartSpinning,
+		canvasSize,
 		popupSize,
+		sPinSize,
 	};
 };
