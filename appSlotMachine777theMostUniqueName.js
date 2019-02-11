@@ -219,11 +219,12 @@ e.wrap.classList.add('appSlotMachine777theMostUniqueName');
 
 /* CANVAS */
 e.canvas.id = 'canvasSlotMachine777theMostUniqueName';
-e.canvas.width = 777;
-e.canvas.height = 777;
+e.canvas.width = config.canvasSize;
+e.canvas.height = config.canvasSize;
 e.canvas.setAttribute('data-responsiveMinWidth', '100');
 e.canvas.setAttribute('data-responsiveScaleHeight', 'true');
 e.canvas.setAttribute('data-responsiveMargin', '0');
+
 e.canvas.innerText = 'Canvas not supported, please use another browser.';
 e.canvas.style.visibility = 'hidden';
 
@@ -405,12 +406,12 @@ function setSize() {
 	if (sizes.wrapper.w > sizes.wrapper.h || sizes.wrapper.w * 100 / sizes.wrapper.h > 80) {
 		if (config.title) sizes.canvasWrapper.w = sizes.wrapper.h * 0.7;
 		else sizes.canvasWrapper.w = sizes.wrapper.h * 0.9;
-		if (sizes.canvasWrapper.w > 777) sizes.canvasWrapper.w = 777;
+		if (sizes.canvasWrapper.w > config.canvasSize) sizes.canvasWrapper.w = config.canvasSize;
 		sizes.canvasWrapper.t = sizes.wrapper.h * 0.25;
 	} else {
 		if (config.title) sizes.canvasWrapper.w = sizes.wrapper.w * 0.9;
 		else sizes.canvasWrapper.w = sizes.wrapper.w;
-		if (sizes.canvasWrapper.w > 777) sizes.canvasWrapper.w = 777;
+		if (sizes.canvasWrapper.w > config.canvasSize) sizes.canvasWrapper.w = config.canvasSize;
 		sizes.canvasWrapper.t = sizes.wrapper.h * 0.1 + (sizes.wrapper.h / 2 - sizes.canvasWrapper.w / 2);
 	}
 	if (!config.title) sizes.canvasWrapper.t = sizes.canvasWrapper.w / 10;
@@ -432,7 +433,7 @@ function setSize() {
 
 	/* SPIN */
 	if (cookieState === 1) {
-		sizes.spin.w = sizes.canvasWrapper.w / 3;
+		sizes.spin.w = sizes.canvasWrapper.w * config.sPinSize;
 		sizes.spin.h = sizes.spin.w;
 		sizes.spin.l = sizes.canvasWrapper.l + sizes.canvasWrapper.w / 2 - sizes.spin.w / 2;
 		sizes.spin.t = sizes.canvasWrapper.t + sizes.canvasWrapper.w / 2 - sizes.spin.h / 2;
