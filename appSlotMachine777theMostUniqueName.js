@@ -497,11 +497,15 @@ const startAPI = (configJSON, playGame, setSize) => {
 				position: absolute;
 				z-index: 1;
 			`;
-		salute.style.width = `${e.wrap.clientWidth}px`;
-		salute.style.height = `${e.wrap.clientHeight}px`;
+		function setSizeSalute() {
+			salute.style.width = `${e.wrap.clientWidth}px`;
+			salute.style.height = `${e.wrap.clientHeight}px`;
+		}
+		setSizeSalute();
 		salute.src = config.salute;
 		salute.frameBorder = 0;
 		e.wrap.append(salute);
+		window.addEventListener('resize', setSizeSalute);
 	};
 
 	const insertPopup = () => {
