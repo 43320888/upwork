@@ -380,10 +380,15 @@ function setSize() {
 	};
 	/* WRAPPER */
 	sizes.wrapper.w = e.wrap.clientWidth;
-	switch (Boolean(config.tableHeight)) {
+
+	if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) && config.tableHeight.mobileHeight) {
+		config.tableHeight.mainHeight = config.tableHeight.mobileHeight;
+	}
+
+	switch (Boolean(config.tableHeight.mainHeight)) {
 		case true:
-			if (config.tableHeight.includes('%')) sizes.wrapper.h = sizes.wrapper.w * Number.parseInt(config.tableHeight, 10) / 100;
-			else sizes.wrapper.h = config.tableHeight;
+			if (config.tableHeight.mainHeight.includes('%')) sizes.wrapper.h = sizes.wrapper.w * Number.parseInt(config.tableHeight.mainHeight, 10) / 100;
+			else sizes.wrapper.h = config.tableHeight.mainHeight;
 			break;
 		default:
 			if (sizes.wrapper.w <= document.documentElement.clientHeight || sizes.wrapper.w <= window.innerHeight) {
