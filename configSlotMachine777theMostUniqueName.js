@@ -77,7 +77,7 @@ const configSlotMachine777theMostUniqueName = () => {
 
 	const title = /* true */false;
 
-	const prestartSpinning = /*true*/false;
+	const prestartSpinning = /* true */false;
 
 	/* Link to the page with a salute.
 	Replace links with your links. */
