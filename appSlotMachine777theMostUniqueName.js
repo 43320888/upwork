@@ -1,4 +1,6 @@
-// window.addEventListener('load', () => {
+/**
+ * app v=1.2 from 14.02.2019
+ */
 /* eslint-disable */
 
 /* TWEENMAX.MIN.JS */
@@ -73,7 +75,7 @@ if (getCookie || setCookie || deleteCookie) {
 }
 
 /* WINWHEEL.JS */
-const startAPI = (configJSON) => {
+const startAPI = (configJSON, playGame, setSize) => {
 	/* WINWHEEL DOCKS: http://dougtesting.net/winwheel/docs  */
 	function Winwheel(a, c) {
 		defaultOptions = {
@@ -188,403 +190,414 @@ const startAPI = (configJSON) => {
 };
 
 /* eslint-enable */
-/* eslint-disable-next-line no-undef */
-const config = configSlotMachine777theMostUniqueName();
 
-let cookieState = 1; /* 1 — not used; 2 — prize given; 3 — received prize */
-/* eslint-disable */
-if (getCookie('name')) cookieState++;
-if (getCookie('jackpot')) cookieState++;
-if (cookieState > 1) config.postType = 'current page';
-/* eslint-enable */
+(() => {
+	/* eslint-disable-next-line no-undef */
+	const config = configSlotMachine777theMostUniqueName();
 
-/* NODES */
-const e = {
-	wrap: document.createElement('div'),
-	canvaswrapper: document.createElement('div'),
-	canvas: document.createElement('canvas'),
-	pin: document.createElement('div'),
-	spin: document.createElement('div'),
-	style: document.createElement('style'),
-};
+	let cookieState = 1; /* 1 — not used; 2 — prize given; 3 — received prize */
+	/* eslint-disable */
+	if (getCookie('name')) cookieState++;
+	if (getCookie('jackpot')) cookieState++;
+	if (cookieState > 1) config.postType = 'current page';
+	/* eslint-enable */
 
-if (config.title) e.h = document.createElement('div');
-
-/* WRAPPER */
-e.wrap.classList.add('appSlotMachine777theMostUniqueName');
-
-/* TITLE */
-
-/* CANVASWRAPPER */
-
-/* CANVAS */
-e.canvas.id = 'canvasSlotMachine777theMostUniqueName';
-e.canvas.width = config.canvasSize;
-e.canvas.height = config.canvasSize;
-e.canvas.setAttribute('data-responsiveMinWidth', '100');
-e.canvas.setAttribute('data-responsiveScaleHeight', 'true');
-e.canvas.setAttribute('data-responsiveMargin', '0');
-
-e.canvas.innerText = 'Canvas not supported, please use another browser.';
-e.canvas.style.visibility = 'hidden';
-
-/* PIN */
-e.pin.style.visibility = 'hidden';
-let pinCSS = 2;
-if (config.title) pinCSS++;
-
-/* SPIN */
-if (cookieState === 1) {
-	e.spin.style.visibility = 'hidden';
-	e.spin.onclick = () => {
-		/* eslint-disable no-use-before-define */
-		e.spin.onclick = '';
-		e.spin.style.cssText += `cursor: default;
-				background: url(${config.pictures.spinAfterClick});
-				background-size: contain;
-			`;
-
-		playSound(pop.while);
-
-		const w = {
-
-			rotationAngle: theWheel.rotationAngle % 360,
-		};
-		const a = {
-			type: 'spinToStop',
-			duration: 10,
-			stopAngle: stopAt,
-			callbackSound: () => playSound(pop.segment),
-			/* eslint-disable-next-line no-undef */
-			easing: CustomEase.create('custom', 'M0,0,C0,0,0.076,0.608,0.302,0.706,0.436,0.77,0.936,0.938,0.95,1,0.972,0.96,0.965,1.014,0.98,0.996,0.988,0.986,1,1,1,1'),
-			callbackFinished: alertPrize,
-		};
-		switch (config.power) {
-			case 'LOW':
-				a.spins = 3;
-				break;
-
-			case 'HIGH':
-				a.spins = 10;
-				break;
-
-			default:
-				a.spins = 6;
-				break;
-		}
-		setAndStartTheWheel(w, a);
-		/* eslint-enable no-use-before-define */
+	/* NODES */
+	const e = {
+		wrap: document.createElement('div'),
+		canvaswrapper: document.createElement('div'),
+		canvas: document.createElement('canvas'),
+		pin: document.createElement('div'),
+		spin: document.createElement('div'),
+		style: document.createElement('style'),
 	};
-}
-let sPinCSS = 3;
-if (config.title) sPinCSS++;
 
-/* STYLE */
-e.style.type = 'text/css';
-e.style.innerHTML = `
-		/* WRAPPER */
-		.appSlotMachine777theMostUniqueName {
-			position: relative;
-			background: #7770;
-			background: url(${config.pictures.wrapper});
-			background-position-x: center;
-		}
+	if (config.title) e.h = document.createElement('div');
 
-		/* TITLE */
-		.appSlotMachine777theMostUniqueName div:first-child {
-			position: absolute;
-			background: green;
-			background: url(${config.pictures.title});
-			background-position: center;
-			background-repeat: no-repeat;
-			background-size: contain;
-		}
-
-		/* PIN */
-		.appSlotMachine777theMostUniqueName div:nth-child(${pinCSS}) {
-			position: absolute;
-			background: white;
-			background: url(${config.pictures.pin});
-			background-size: contain;
-			transform-origin: 50% 0;
-			transition: 100ms;
-			z-index: 2;
-		}
-		.appSlotMachine777theMostUniqueName div:nth-child(${pinCSS})[data-state="jab"] {
-			transform: rotate(-20deg);
-		}
-
-		/* CANVASWRAPPER */
-		.appSlotMachine777theMostUniqueName div:nth-child(2) {
-			position: absolute;
-			overflow: hidden;
-		}
-
-		/* CANVAS */
-		.appSlotMachine777theMostUniqueName #canvasSlotMachine777theMostUniqueName {
-			z-index: 1;
-			background: #ec80;
-			border-radius: 50%;
-		}
-
-		/* SPIN */
-		.appSlotMachine777theMostUniqueName div:nth-child(${sPinCSS}) {
-			position: absolute;
-			border-radius: 50%;
-			z-index: 2;
-			background: #777;
-			background: url(${config.pictures.spin});
-			background-size: contain;
-		}
-		.appSlotMachine777theMostUniqueName div:nth-child(${sPinCSS}):hover {
-			cursor: pointer;
-		}
-
-	`;
-
-/* INSERT NODES */
-document.head.appendChild(e.style);
-document.querySelector('[src*="configSlotMachine777theMostUniqueName.js"]').after(e.wrap);
-if (config.title) e.wrap.prepend(e.h);
-e.wrap.appendChild(e.canvaswrapper);
-e.canvaswrapper.appendChild(e.canvas);
-e.wrap.appendChild(e.pin);
-
-if (cookieState === 1) e.wrap.appendChild(e.spin);
-/* eslint-disable max-len */
-
-/* DYNAMIC SIZE */
-function setSize() {
-	const sizes = {
-		wrapper: {
-			w: 0,
-			h: 0,
-		},
-		canvasWrapper: {
-			w: 0,
-			t: 0,
-			l: 0,
-		},
-		pin: {
-			t: 0,
-			l: 0,
-			w: 0,
-			h: 0,
-		},
-		spin: {
-			t: 0,
-			l: 0,
-			w: 0,
-			h: 0,
-		},
-	};
 	/* WRAPPER */
-	sizes.wrapper.w = e.wrap.clientWidth;
-	switch (Boolean(config.tableHeight)) {
-		case true:
-			if (config.tableHeight.includes('%')) sizes.wrapper.h = sizes.wrapper.w * Number.parseInt(config.tableHeight, 10) / 100;
-			else sizes.wrapper.h = config.tableHeight;
-			break;
-		default:
-			if (sizes.wrapper.w <= document.documentElement.clientHeight || sizes.wrapper.w <= window.innerHeight) {
-				sizes.wrapper.h = window.innerHeight;
-			} else {
-				sizes.wrapper.h = window.innerHeight;
-			}
-			break;
-	}
-	e.wrap.style.height = `${sizes.wrapper.h}px`;
+	e.wrap.classList.add('appSlotMachine777theMostUniqueName');
 
 	/* TITLE */
-	if (config.title) {
-		e.h.style.top = `${sizes.wrapper.h / 20}px`;
-		e.h.style.width = `${sizes.wrapper.w}px`;
-		e.h.style.height = `${sizes.wrapper.h / 10}px`;
-	}
 
 	/* CANVASWRAPPER */
-	if (sizes.wrapper.w > sizes.wrapper.h || sizes.wrapper.w * 100 / sizes.wrapper.h > 80) {
-		if (config.title) sizes.canvasWrapper.w = sizes.wrapper.h * 0.7;
-		else sizes.canvasWrapper.w = sizes.wrapper.h * 0.9;
-		if (sizes.canvasWrapper.w > config.canvasSize) sizes.canvasWrapper.w = config.canvasSize;
-		sizes.canvasWrapper.t = sizes.wrapper.h * 0.25;
-	} else {
-		if (config.title) sizes.canvasWrapper.w = sizes.wrapper.w * 0.9;
-		else sizes.canvasWrapper.w = sizes.wrapper.w;
-		if (sizes.canvasWrapper.w > config.canvasSize) sizes.canvasWrapper.w = config.canvasSize;
-		sizes.canvasWrapper.t = sizes.wrapper.h * 0.1 + (sizes.wrapper.h / 2 - sizes.canvasWrapper.w / 2);
-	}
-	if (!config.title) sizes.canvasWrapper.t = sizes.canvasWrapper.w / 10;
-	sizes.canvasWrapper.l = sizes.wrapper.w / 2 - sizes.canvasWrapper.w / 2;
-	e.canvaswrapper.style.width = `${sizes.canvasWrapper.w}px`;
-	e.canvaswrapper.style.top = `${sizes.canvasWrapper.t}px`;
-	e.canvaswrapper.style.left = `${sizes.canvasWrapper.l}px`;
+
+	/* CANVAS */
+	e.canvas.id = 'canvasSlotMachine777theMostUniqueName';
+	e.canvas.width = config.canvasSize;
+	e.canvas.height = config.canvasSize;
+	e.canvas.setAttribute('data-responsiveMinWidth', '100');
+	e.canvas.setAttribute('data-responsiveScaleHeight', 'true');
+	e.canvas.setAttribute('data-responsiveMargin', '0');
+
+	e.canvas.innerText = 'Canvas not supported, please use another browser.';
+	e.canvas.style.visibility = 'hidden';
 
 	/* PIN */
-	sizes.pin.w = sizes.canvasWrapper.w / 5;
-	sizes.pin.h = sizes.pin.w;
-	sizes.pin.t = sizes.canvasWrapper.t - sizes.canvasWrapper.w / 10;
-	sizes.pin.l = sizes.canvasWrapper.l + sizes.canvasWrapper.w / 2 - sizes.pin.w / 2;
-	if (!config.title) sizes.pin.t = sizes.canvasWrapper.t - sizes.pin.h / 2;
-	e.pin.style.width = `${sizes.pin.w}px`;
-	e.pin.style.height = `${sizes.pin.h}px`;
-	e.pin.style.top = `${sizes.pin.t}px`;
-	e.pin.style.left = `${sizes.pin.l}px`;
+	e.pin.style.visibility = 'hidden';
+	let pinCSS = 2;
+	if (config.title) pinCSS++;
 
 	/* SPIN */
 	if (cookieState === 1) {
-		sizes.spin.w = sizes.canvasWrapper.w * config.sPinSize;
-		sizes.spin.h = sizes.spin.w;
-		sizes.spin.l = sizes.canvasWrapper.l + sizes.canvasWrapper.w / 2 - sizes.spin.w / 2;
-		sizes.spin.t = sizes.canvasWrapper.t + sizes.canvasWrapper.w / 2 - sizes.spin.h / 2;
+		e.spin.style.visibility = 'hidden';
+		e.spin.onclick = () => {
+			/* eslint-disable no-use-before-define */
+			e.spin.onclick = '';
+			e.spin.style.cssText += `cursor: default;
+					background: url(${config.pictures.spinAfterClick});
+					background-size: contain;
+				`;
 
-		e.spin.style.width = `${sizes.spin.w}px`;
-		e.spin.style.height = `${sizes.spin.h}px`;
-		e.spin.style.top = `${sizes.spin.t}px`;
-		e.spin.style.left = `${sizes.spin.l}px`;
+			playSound(pop.while);
+
+			const w = {
+
+				rotationAngle: theWheel.rotationAngle % 360,
+			};
+			const a = {
+				type: 'spinToStop',
+				duration: 10,
+				stopAngle: stopAt,
+				callbackSound: () => playSound(pop.segment),
+				/* eslint-disable-next-line no-undef */
+				easing: CustomEase.create('custom', 'M0,0,C0,0,0.076,0.608,0.302,0.706,0.436,0.77,0.936,0.938,0.95,1,0.972,0.96,0.965,1.014,0.98,0.996,0.988,0.986,1,1,1,1'),
+				callbackFinished: alertPrize,
+			};
+			switch (config.power) {
+				case 'LOW':
+					a.spins = 3;
+					break;
+
+				case 'HIGH':
+					a.spins = 10;
+					break;
+
+				default:
+					a.spins = 6;
+					break;
+			}
+			setAndStartTheWheel(w, a);
+			/* eslint-enable no-use-before-define */
+		};
 	}
-}
-setSize();
-window.addEventListener('resize', () => setSize());
+	let sPinCSS = 3;
+	if (config.title) sPinCSS++;
 
-/* eslint-enable */
-/* eslint-disable quote-props */
+	/* STYLE */
+	e.style.type = 'text/css';
+	e.style.innerHTML = `
+			/* WRAPPER */
+			.appSlotMachine777theMostUniqueName {
+				position: relative;
+				background: #7770;
+				background: url(${config.pictures.wrapper});
+				background-position-x: center;
+			}
 
-/* WHEEL PROPERTIES */
-const pop = {
-	after: new Audio(config.pop.after),
-	while: new Audio(config.pop.while),
-	segment: new Audio(config.pop.segment),
-};
-const playSound = (audio, onlyJab, start, end) => {
-	/* eslint-disable no-use-before-define, no-param-reassign */
-	if (onlyJab) pinJab();
-	else {
-		audio.pause();
-		audio.currentTime = start || 0;
-		audio.play();
-		pinJab();
-		if (end) setTimeout(() => audio.pause(), end);
-	}
-	/* eslint-enable no-use-before-define no-param-reassign */
-	/**
-	 *  SAFARI browser WARNINGS in console message: "Unhandled Promise Rejection: [Object DOMError]"
-	 * that well known issue
-	 * See problems about this errors: http://qaru.site/questions/6977973/mp4-video-safari-showing-unhandled-promise-rejection-object-domerror-in-console
-	 * OK in CHROME and other browsers
-	 */
-};
+			/* TITLE */
+			.appSlotMachine777theMostUniqueName div:first-child {
+				position: absolute;
+				background: green;
+				background: url(${config.pictures.title});
+				background-position: center;
+				background-repeat: no-repeat;
+				background-size: contain;
+			}
 
-const pinJab = () => {
-	e.pin.dataset.state = 'jab';
-	setTimeout(() => {
-		e.pin.dataset.state = '';
-	}, 50);
-};
+			/* PIN */
+			.appSlotMachine777theMostUniqueName div:nth-child(${pinCSS}) {
+				position: absolute;
+				background: white;
+				background: url(${config.pictures.pin});
+				background-size: contain;
+				transform-origin: 50% 0;
+				transition: 100ms;
+				z-index: 2;
+			}
+			.appSlotMachine777theMostUniqueName div:nth-child(${pinCSS})[data-state="jab"] {
+				transform: rotate(-20deg);
+			}
 
-const insertSalute = () => {
-	const salute = document.createElement('iframe');
-	salute.style.cssText = `
-			position: absolute;
-			z-index: 1;
+			/* CANVASWRAPPER */
+			.appSlotMachine777theMostUniqueName div:nth-child(2) {
+				position: absolute;
+				overflow: hidden;
+			}
+
+			/* CANVAS */
+			.appSlotMachine777theMostUniqueName #canvasSlotMachine777theMostUniqueName {
+				z-index: 1;
+				background: #ec80;
+				border-radius: 50%;
+			}
+
+			/* SPIN */
+			.appSlotMachine777theMostUniqueName div:nth-child(${sPinCSS}) {
+				position: absolute;
+				border-radius: 50%;
+				z-index: 2;
+				background: #777;
+				background: url(${config.pictures.spin});
+				background-size: contain;
+			}
+			.appSlotMachine777theMostUniqueName div:nth-child(${sPinCSS}):hover {
+				cursor: pointer;
+			}
+
 		`;
-	salute.style.width = `${e.wrap.clientWidth}px`;
-	salute.style.height = `${e.wrap.clientHeight}px`;
-	salute.src = config.salute;
-	salute.frameBorder = 0;
-	e.wrap.append(salute);
-};
 
-const insertPopup = () => {
-	const modalWindow = document.createElement('iframe');
-	modalWindow.style.cssText = `
-			height: ${config.popupSize * 100}%;
-			position: absolute;
-			top: ${(100 - config.popupSize * 100) / 2}%;
-			left: ${(100 - config.popupSize * 100) / 2}%;
-			width: ${config.popupSize * 100}%;
-			z-index: 3;
-		`;
-	modalWindow.src = config.contactForm;
-	modalWindow.frameBorder = 0;
-	e.canvaswrapper.append(modalWindow);
-};
-if (cookieState === 2) insertPopup();
+	/* INSERT NODES */
+	document.head.appendChild(e.style);
+	document.querySelector('[src*="configSlotMachine777theMostUniqueName.js"]').after(e.wrap);
+	if (config.title) e.wrap.prepend(e.h);
+	e.wrap.appendChild(e.canvaswrapper);
+	e.canvaswrapper.appendChild(e.canvas);
+	e.wrap.appendChild(e.pin);
 
-const alertPrize = () => {
-	insertSalute();
+	if (cookieState === 1) e.wrap.appendChild(e.spin);
+	/* eslint-disable max-len */
 
-	/* eslint-disable no-undef, no-restricted-globals */
-	setCookie('jackpot', theWheel.getIndicatedSegment().text, {
-		domain: location.hostname,
-		path: '/',
-	});
-	/* eslint-enable no-undef, no-restricted-globals */
+	/* DYNAMIC SIZE */
+	function setSize() {
+		const sizes = {
+			wrapper: {
+				w: 0,
+				h: 0,
+			},
+			canvasWrapper: {
+				w: 0,
+				t: 0,
+				l: 0,
+			},
+			pin: {
+				t: 0,
+				l: 0,
+				w: 0,
+				h: 0,
+			},
+			spin: {
+				t: 0,
+				l: 0,
+				w: 0,
+				h: 0,
+			},
+		};
+		/* WRAPPER */
+		sizes.wrapper.w = e.wrap.clientWidth;
 
-	setTimeout(() => {
-		if (config.postType === 'new page') {
-			/* eslint-disable-next-line no-restricted-globals */
-			location.href = config.contactForm;
-		} else if (config.postType === 'current page') {
-			insertPopup();
+		if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) && config.tableHeight.mobileHeight) {
+			config.tableHeight.mainHeight = config.tableHeight.mobileHeight;
 		}
-	}, config.winDelay * 1000);
-	playSound(pop.after);
-};
 
+		switch (Boolean(config.tableHeight.mainHeight)) {
+			case true:
+				if (config.tableHeight.mainHeight.includes('%')) sizes.wrapper.h = sizes.wrapper.w * Number.parseInt(config.tableHeight.mainHeight, 10) / 100;
+				else sizes.wrapper.h = config.tableHeight.mainHeight;
+				break;
+			default:
+				if (sizes.wrapper.w <= document.documentElement.clientHeight || sizes.wrapper.w <= window.innerHeight) {
+					sizes.wrapper.h = window.innerHeight;
+				} else {
+					sizes.wrapper.h = window.innerHeight;
+				}
+				break;
+		}
+		e.wrap.style.height = `${sizes.wrapper.h}px`;
 
-const theWheel = startAPI({
-	canvasId: 'canvasSlotMachine777theMostUniqueName',
-	responsive: true,
-	drawMode: 'image',
-	numSegments: config.segments.length,
-	segments: config.segments,
-});
+		/* TITLE */
+		if (config.title) {
+			e.h.style.top = `${sizes.wrapper.h / 20}px`;
+			e.h.style.width = `${sizes.wrapper.w}px`;
+			e.h.style.height = `${sizes.wrapper.h / 10}px`;
+		}
 
-const stopAt = (() => {
-	const arrayWinTrueSegments = [];
-	const archLength = 360 / config.segments.length;
-	config.segments.forEach((item, index) => {
-		if (item.win) arrayWinTrueSegments.push(index);
-	});
-	function getRandomInt(min, max) {
-		/* eslint-disable no-param-reassign */
-		min = Math.ceil(min);
-		max = Math.floor(max);
-		return Math.floor(Math.random() * (max - min)) + min;
+		/* CANVASWRAPPER */
+		if (sizes.wrapper.w > sizes.wrapper.h || sizes.wrapper.w * 100 / sizes.wrapper.h > 80) {
+			if (config.title) sizes.canvasWrapper.w = sizes.wrapper.h * 0.7;
+			else sizes.canvasWrapper.w = sizes.wrapper.h * 0.9;
+			if (sizes.canvasWrapper.w > config.canvasSize) sizes.canvasWrapper.w = config.canvasSize;
+			sizes.canvasWrapper.t = sizes.wrapper.h * 0.25;
+		} else {
+			if (config.title) sizes.canvasWrapper.w = sizes.wrapper.w * 0.9;
+			else sizes.canvasWrapper.w = sizes.wrapper.w;
+			if (sizes.canvasWrapper.w > config.canvasSize) sizes.canvasWrapper.w = config.canvasSize;
+			sizes.canvasWrapper.t = sizes.wrapper.h * 0.1 + (sizes.wrapper.h / 2 - sizes.canvasWrapper.w / 2);
+		}
+		if (!config.title) sizes.canvasWrapper.t = sizes.canvasWrapper.w / 10;
+		sizes.canvasWrapper.l = sizes.wrapper.w / 2 - sizes.canvasWrapper.w / 2;
+		e.canvaswrapper.style.width = `${sizes.canvasWrapper.w}px`;
+		e.canvaswrapper.style.top = `${sizes.canvasWrapper.t}px`;
+		e.canvaswrapper.style.left = `${sizes.canvasWrapper.l}px`;
+
+		/* PIN */
+		sizes.pin.w = sizes.canvasWrapper.w / 5;
+		sizes.pin.h = sizes.pin.w;
+		sizes.pin.t = sizes.canvasWrapper.t - sizes.canvasWrapper.w / 10;
+		sizes.pin.l = sizes.canvasWrapper.l + sizes.canvasWrapper.w / 2 - sizes.pin.w / 2;
+		if (!config.title) sizes.pin.t = sizes.canvasWrapper.t - sizes.pin.h / 2;
+		e.pin.style.width = `${sizes.pin.w}px`;
+		e.pin.style.height = `${sizes.pin.h}px`;
+		e.pin.style.top = `${sizes.pin.t}px`;
+		e.pin.style.left = `${sizes.pin.l}px`;
+
+		/* SPIN */
+		if (cookieState === 1) {
+			sizes.spin.w = sizes.canvasWrapper.w * config.sPinSize;
+			sizes.spin.h = sizes.spin.w;
+			sizes.spin.l = sizes.canvasWrapper.l + sizes.canvasWrapper.w / 2 - sizes.spin.w / 2;
+			sizes.spin.t = sizes.canvasWrapper.t + sizes.canvasWrapper.w / 2 - sizes.spin.h / 2;
+
+			e.spin.style.width = `${sizes.spin.w}px`;
+			e.spin.style.height = `${sizes.spin.h}px`;
+			e.spin.style.top = `${sizes.spin.t}px`;
+			e.spin.style.left = `${sizes.spin.l}px`;
+		}
 	}
-	const r = arrayWinTrueSegments[getRandomInt(0, arrayWinTrueSegments.length)];
-	return r * archLength + archLength / 2;
-})();
+	setSize();
+	window.addEventListener('resize', () => setSize());
 
-function setAndStartTheWheel(wheelSettings, animationSettings) {
-	Object.assign(theWheel, wheelSettings);
-	theWheel.animation = animationSettings;
-	theWheel.draw();
-	theWheel.startAnimation();
-}
-function playGame() {
-	const loadedImg = new Image();
-	loadedImg.onload = () => {
-		const w = {
-			wheelImage: loadedImg,
-		};
-		const a = {
-			type: 'spinOngoing',
-			duration: 32,
-			callbackSound: () => playSound(pop.segment, 1),
+	/* eslint-enable */
+	/* eslint-disable quote-props */
 
-		};
-		if (!config.prestartSpinning) a.duration = 0;
-		setAndStartTheWheel(w, a);
-
-		e.canvas.style.visibility = '';
-		e.pin.style.visibility = '';
-		setTimeout(() => {
-			e.spin.style.visibility = '';
-		}, 777);
+	/* WHEEL PROPERTIES */
+	const pop = {
+		after: new Audio(config.pop.after),
+		while: new Audio(config.pop.while),
+		segment: new Audio(config.pop.segment),
 	};
-	loadedImg.src = config.pictures.table;
-	playGame.check = 1;
-}
-// });
+	const playSound = (audio, onlyJab, start, end) => {
+		/* eslint-disable no-use-before-define, no-param-reassign */
+		if (onlyJab) pinJab();
+		else {
+			audio.pause();
+			audio.currentTime = start || 0;
+			audio.play();
+			pinJab();
+			if (end) setTimeout(() => audio.pause(), end);
+		}
+		/* eslint-enable no-use-before-define no-param-reassign */
+		/**
+		 *  SAFARI browser WARNINGS in console message: "Unhandled Promise Rejection: [Object DOMError]"
+		 * that well known issue
+		 * See problems about this errors: http://qaru.site/questions/6977973/mp4-video-safari-showing-unhandled-promise-rejection-object-domerror-in-console
+		 * OK in CHROME and other browsers
+		 */
+	};
+
+	const pinJab = () => {
+		e.pin.dataset.state = 'jab';
+		setTimeout(() => {
+			e.pin.dataset.state = '';
+		}, 50);
+	};
+
+	const insertSalute = () => {
+		const salute = document.createElement('iframe');
+		salute.style.cssText = `
+				position: absolute;
+				z-index: 1;
+			`;
+		function setSizeSalute() {
+			salute.style.width = `${e.wrap.clientWidth}px`;
+			salute.style.height = `${e.wrap.clientHeight}px`;
+		}
+		setSizeSalute();
+		salute.src = config.salute;
+		salute.frameBorder = 0;
+		e.wrap.append(salute);
+		window.addEventListener('resize', setSizeSalute);
+	};
+
+	const insertPopup = () => {
+		const modalWindow = document.createElement('iframe');
+		modalWindow.style.cssText = `
+				height: ${config.popupSize * 100}%;
+				position: absolute;
+				top: ${(100 - config.popupSize * 100) / 2}%;
+				left: ${(100 - config.popupSize * 100) / 2}%;
+				width: ${config.popupSize * 100}%;
+				z-index: 3;
+			`;
+		modalWindow.src = config.contactForm;
+		modalWindow.frameBorder = 0;
+		e.canvaswrapper.append(modalWindow);
+	};
+	if (cookieState === 2) insertPopup();
+
+	const alertPrize = () => {
+		insertSalute();
+
+		/* eslint-disable no-undef, no-restricted-globals */
+		setCookie('jackpot', theWheel.getIndicatedSegment().text, {
+			domain: location.hostname,
+			path: '/',
+		});
+		/* eslint-enable no-undef, no-restricted-globals */
+
+		setTimeout(() => {
+			if (config.postType === 'new page') {
+				/* eslint-disable-next-line no-restricted-globals */
+				location.href = config.contactForm;
+			} else if (config.postType === 'current page') {
+				insertPopup();
+			}
+		}, config.winDelay * 1000);
+		playSound(pop.after);
+	};
+
+
+	const theWheel = startAPI({
+		canvasId: 'canvasSlotMachine777theMostUniqueName',
+		responsive: true,
+		drawMode: 'image',
+		numSegments: config.segments.length,
+		segments: config.segments,
+	}, playGame, setSize);
+
+	const stopAt = (() => {
+		const arrayWinTrueSegments = [];
+		const archLength = 360 / config.segments.length;
+		config.segments.forEach((item, index) => {
+			if (item.win) arrayWinTrueSegments.push(index);
+		});
+		function getRandomInt(min, max) {
+			/* eslint-disable no-param-reassign */
+			min = Math.ceil(min);
+			max = Math.floor(max);
+			return Math.floor(Math.random() * (max - min)) + min;
+		}
+		const r = arrayWinTrueSegments[getRandomInt(0, arrayWinTrueSegments.length)];
+		return r * archLength + archLength / 2;
+	})();
+
+	function setAndStartTheWheel(wheelSettings, animationSettings) {
+		Object.assign(theWheel, wheelSettings);
+		theWheel.animation = animationSettings;
+		theWheel.draw();
+		theWheel.startAnimation();
+	}
+	function playGame() {
+		const loadedImg = new Image();
+		loadedImg.onload = () => {
+			const w = {
+				wheelImage: loadedImg,
+			};
+			const a = {
+				type: 'spinOngoing',
+				duration: 32,
+				callbackSound: () => playSound(pop.segment, 1),
+
+			};
+			if (!config.prestartSpinning) a.duration = 0;
+			setAndStartTheWheel(w, a);
+
+			e.canvas.style.visibility = '';
+			e.pin.style.visibility = '';
+			setTimeout(() => {
+				e.spin.style.visibility = '';
+			}, 777);
+		};
+		loadedImg.src = config.pictures.table;
+		playGame.check = 1;
+	}
+})();
