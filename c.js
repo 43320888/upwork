@@ -1,6 +1,6 @@
 /* eslint-disable quote-props, no-unused-vars, no-undef */
 /**
- * app v=1.2 from 14.02.2019
+ * app v=1.3 from 15.02.2019
  * Used names:
  * variable: 	configSlotMachine777theMostUniqueName
  * ID: 		canvasSlotMachine777theMostUniqueName
@@ -30,7 +30,7 @@ const configSlotMachine777theMostUniqueName = () => {
 		wrapper: 'images/Covers.jpg',
 		title: 'images/casino.svg',
 		pin: 'images/pin.png',
-		table: 'images/wheel_1-min.png',
+		table: 'images/500-yellow-gold-min.png',
 		spin: 'images/start_button.png',
 		spinAfterClick: 'images/logo.png',
 	};
@@ -39,8 +39,8 @@ const configSlotMachine777theMostUniqueName = () => {
 
 		/* These samples are downloaded from a sound hosting. Put your own if you want */
 		while: 'sounds/ticks10s.mp3',
-		after: '/* sounds/clap4.mp3 */',
-		segment: '/* sounds/tick.mp3 */',
+		after: '',
+		segment: '',
 	};
 
 	const tableHeight = {
@@ -49,7 +49,7 @@ const configSlotMachine777theMostUniqueName = () => {
 			mainHeight = '140px'; mean 140 pixels (at least 140 pixels)
 			mainHeight = '';  mean fullscreen
 			mainHeight = '80%' mean height is 80% of the width. */
-		mainHeight: /* '' */'50%'/* '140px' */,
+		mainHeight: /* '' */'500px'/* '140px' */,
 		/* If necessary, set the height for the mobile below. */
 		/* If not set, then the main height will be used. */
 		mobileHeight: /* '' */'100%',
@@ -93,7 +93,7 @@ const configSlotMachine777theMostUniqueName = () => {
 	/* Form Filling Page link */
 	const contactForm = 'popup/index.html';
 
-	const canvasSize = 777;
+	const canvasSize = 500;
 	const popupSize = 0.5;
 	const sPinSize = 0.24;
 
