@@ -1,5 +1,5 @@
 /**
- * app v=1.2 from 14.02.2019
+ * app v=1.3 from 15.02.2019
  */
 /* eslint-disable */
 
@@ -388,11 +388,10 @@ const startAPI = (configJSON, playGame, setSize) => {
 		if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) && config.tableHeight.mobileHeight) {
 			config.tableHeight.mainHeight = config.tableHeight.mobileHeight;
 		}
-
 		switch (Boolean(config.tableHeight.mainHeight)) {
 			case true:
 				if (config.tableHeight.mainHeight.includes('%')) sizes.wrapper.h = sizes.wrapper.w * Number.parseInt(config.tableHeight.mainHeight, 10) / 100;
-				else sizes.wrapper.h = config.tableHeight.mainHeight;
+				else sizes.wrapper.h = Number.parseFloat(config.tableHeight.mainHeight, 10) / 0.9;
 				break;
 			default:
 				if (sizes.wrapper.w <= document.documentElement.clientHeight || sizes.wrapper.w <= window.innerHeight) {
@@ -492,20 +491,33 @@ const startAPI = (configJSON, playGame, setSize) => {
 	};
 
 	const insertSalute = () => {
-		const salute = document.createElement('iframe');
-		salute.style.cssText = `
-				position: absolute;
-				z-index: 1;
-			`;
-		function setSizeSalute() {
-			salute.style.width = `${e.wrap.clientWidth}px`;
-			salute.style.height = `${e.wrap.clientHeight}px`;
+		let ie;
+		try {
+			/* eslint-disable-next-line no-undef */
+			if (getInternetExplorerVersion) ie = 1;
+		} catch (error) {
+			ie = 0;
 		}
-		setSizeSalute();
-		salute.src = config.salute;
-		salute.frameBorder = 0;
-		e.wrap.append(salute);
-		window.addEventListener('resize', setSizeSalute);
+		if (ie) {
+			console.log('hello ie');
+		} else if (/edge\/(\d+(\.\d+)?)/i.test(navigator.userAgent) || /edge/i.test(navigator.userAgent)) {
+			console.log('hello edge');
+		} else {
+			const salute = document.createElement('iframe');
+			salute.style.cssText = `
+					position: absolute;
+					z-index: 1;
+				`;
+			const setSizeSalute = () => {
+				salute.style.width = `${e.wrap.clientWidth}px`;
+				salute.style.height = `${e.wrap.clientHeight}px`;
+			};
+			setSizeSalute();
+			salute.src = config.salute;
+			salute.frameBorder = 0;
+			e.wrap.append(salute);
+			window.addEventListener('resize', setSizeSalute);
+		}
 	};
 
 	const insertPopup = () => {
@@ -522,7 +534,6 @@ const startAPI = (configJSON, playGame, setSize) => {
 		modalWindow.frameBorder = 0;
 		e.canvaswrapper.append(modalWindow);
 	};
-	if (cookieState === 2) insertPopup();
 
 	const alertPrize = () => {
 		insertSalute();
@@ -594,7 +605,8 @@ const startAPI = (configJSON, playGame, setSize) => {
 			e.canvas.style.visibility = '';
 			e.pin.style.visibility = '';
 			setTimeout(() => {
-				e.spin.style.visibility = '';
+				if (cookieState === 2) insertPopup();
+				else e.spin.style.visibility = '';
 			}, 777);
 		};
 		loadedImg.src = config.pictures.table;
