@@ -349,7 +349,7 @@ const startAPI = (configJSON, playGame, setSize) => {
 
 	/* INSERT NODES */
 	document.head.appendChild(e.style);
-	document.querySelector('[src*="configSlotMachine777theMostUniqueName.js"]').after(e.wrap);
+	document.querySelector('[src*="configSlotMachine777theMostUniqueName"]').after(e.wrap);
 	if (config.title) e.wrap.prepend(e.h);
 	e.wrap.appendChild(e.canvaswrapper);
 	e.canvaswrapper.appendChild(e.canvas);
