@@ -1,6 +1,6 @@
 /* eslint-disable quote-props, no-unused-vars, no-undef */
 /**
- * app v=1.3 from 15.02.2019
+ * app v=1.3.1 from 21.02.2019
  * Used names:
  * variable: 	configSlotMachine777theMostUniqueName
  * ID: 		canvasSlotMachine777theMostUniqueName
@@ -30,7 +30,7 @@ const configSlotMachine777theMostUniqueName = () => {
 		wrapper: 'images/Covers.jpg',
 		title: 'images/casino.svg',
 		pin: 'images/pin.png',
-		table: 'images/500-yellow-gold-min.png',
+		table: 'images/wheel_500-min.png',
 		spin: 'images/start_button.png',
 		spinAfterClick: 'images/logo.png',
 	};
@@ -61,23 +61,23 @@ const configSlotMachine777theMostUniqueName = () => {
 		'win': true setting Winning Prizes
 		'win': false forbid
 		 */
-		{ 'text': 'Orlando 3 nights', 'win': true },
+		{ 'text': 'Orlando 3 nights', 'win': false },
+		{ 'text': 'Atlantic City 1 nights', 'win': false },
 		{ 'text': 'Mazatlan 5 nights', 'win': true },
-		{ 'text': 'Mazatlan 5 nights', 'win': true },
-		{ 'text': 'Daythona beach 3 nights', 'win': true },
-		{ 'text': 'Daythona beach 3 nights', 'win': true },
-		{ 'text': 'Nuevo Vallarta 5 nights', 'win': false },
-		{ 'text': 'Cancun 5 nights', 'win': false },
-		{ 'text': 'Myrtle Beach 3 nights', 'win': true },
-		{ 'text': 'Puerto Penasca 5 nights', 'win': false },
-		{ 'text': 'Las Vegas 3 nights', 'win': false },
-		{ 'text': 'Acapulco 5 nights', 'win': false },
-		{ 'text': 'Orlando 3 nights', 'win': true },
+		{ 'text': 'Daythona beach 3 nights', 'win': false },
+		{ 'text': 'Miami Beach 3 nights', 'win': false },
+		{ 'text': 'Nuevo Vallarta 5 nights', 'win': true },
+		{ 'text': 'Cancun 5 nights', 'win': true },
+		{ 'text': 'Myrtle Beach 3 nights', 'win': false },
+		{ 'text': 'Puerto Penasca 5 nights', 'win': true },
+		{ 'text': 'Las Vegas 3 nights', 'win': true },
+		{ 'text': 'Acapulco 5 nights', 'win': true },
+		{ 'text': 'Atlantic City 3 nights', 'win': false },
 	];
 
 	const title = /* true */false;
 
-	const prestartSpinning = /* true */false;
+	const prestartSpinning = true/* false */;
 
 	/* Link to the page with a salute.
 	Replace links with your links. */

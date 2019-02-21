@@ -1,5 +1,5 @@
 /**
- * app v=1.3 from 15.02.2019
+ * app v=1.3.1 from 21.02.2019
  */
 /* eslint-disable */
 
@@ -184,6 +184,7 @@ const startAPI = (configJSON, playGame, setSize) => {
 			if(!Boolean(playGame.check)) {
 				setSize();
 				playGame();
+				playGame.check--;
 			}
 	};
 	return new Winwheel(configJSON);
@@ -357,6 +358,16 @@ const startAPI = (configJSON, playGame, setSize) => {
 	if (cookieState === 1) e.wrap.appendChild(e.spin);
 	/* eslint-disable max-len */
 
+	if (/Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) && config.tableHeight.mobileHeight) {
+		config.tableHeight.mainHeight = config.tableHeight.mobileHeight;
+	}
+	/* if (/iPad/i.test(navigator.userAgent) && config.tableHeight.iPadHeight) {
+		config.tableHeight.mainHeight = config.tableHeight.mobileHeight;
+	} */
+	/* if (Math.max(window.innerWidth, window.innerHeight) <= 736 && config.tableHeight.mobileHeight) {
+		config.tableHeight.mainHeight = config.tableHeight.mobileHeight;
+	} */
+
 	/* DYNAMIC SIZE */
 	function setSize() {
 		const sizes = {
@@ -385,9 +396,6 @@ const startAPI = (configJSON, playGame, setSize) => {
 		/* WRAPPER */
 		sizes.wrapper.w = e.wrap.clientWidth;
 
-		if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) && config.tableHeight.mobileHeight) {
-			config.tableHeight.mainHeight = config.tableHeight.mobileHeight;
-		}
 		switch (Boolean(config.tableHeight.mainHeight)) {
 			case true:
 				if (config.tableHeight.mainHeight.includes('%')) sizes.wrapper.h = sizes.wrapper.w * Number.parseInt(config.tableHeight.mainHeight, 10) / 100;
@@ -411,7 +419,7 @@ const startAPI = (configJSON, playGame, setSize) => {
 		}
 
 		/* CANVASWRAPPER */
-		if (sizes.wrapper.w > sizes.wrapper.h || sizes.wrapper.w * 100 / sizes.wrapper.h > 80) {
+		if (sizes.wrapper.w * 100 / sizes.wrapper.h > 90) {
 			if (config.title) sizes.canvasWrapper.w = sizes.wrapper.h * 0.7;
 			else sizes.canvasWrapper.w = sizes.wrapper.h * 0.9;
 			if (sizes.canvasWrapper.w > config.canvasSize) sizes.canvasWrapper.w = config.canvasSize;
