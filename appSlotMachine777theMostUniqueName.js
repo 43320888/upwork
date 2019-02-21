@@ -1,5 +1,5 @@
 /**
- * app v=1.3.1 from 21.02.2019
+ * app v=1.4 from 21.02.2019
  */
 /* eslint-disable */
 

@@ -1,6 +1,6 @@
 /* eslint-disable quote-props, no-unused-vars, no-undef */
 /**
- * app v=1.3.1 from 21.02.2019
+ * app v=1.4 from 21.02.2019
  * Used names:
  * variable: 	configSlotMachine777theMostUniqueName
  * ID: 		canvasSlotMachine777theMostUniqueName
