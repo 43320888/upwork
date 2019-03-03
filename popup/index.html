@@ -10,13 +10,10 @@
 		border-spacing: 10px;
 	}
 </style>
-<script src="cookie.js"></script>
 <body>
 	<div>
-		<h3>
-			<span></span>
-		</h3>
-		<form action="http://atlanticcity.com/list/subscribe" method="POST" accept-charset="utf-8">
+		<h3></h3>
+		<form name="winner">
 			<label for="name">Name</label><br />
 			<input type="text" name="name" id="name" />
 			<br />
@@ -25,15 +22,72 @@
 			<br />
 			<input type="hidden" name="list" value="leIN1VJlSIeZZUqNqxCAcA" />
 			<br />
-			<input type="hidden" id="jackpot" name="jackpot">
 			<br />
-			<input type="submit" name="submit" id="submit" />
+			<input onclick="loadData()" type="submit" name="submit" id="submit" />
 		</form>
 	</div>
 	<script>
+		function getCookie(name) {
+			var matches = document.cookie.match(new RegExp(
+				"(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+			));
+			return matches ? decodeURIComponent(matches[1]) : undefined;
+		}
+		function setCookie(name, value, options) {
+			options = options || {};
+
+			var expires = options.expires;
+
+			if (typeof expires == "number" && expires) {
+				var d = new Date();
+				d.setTime(d.getTime() + expires * 1000);
+				expires = options.expires = d;
+			}
+			if (expires && expires.toUTCString) {
+				options.expires = expires.toUTCString();
+			}
+
+			value = encodeURIComponent(value);
+
+			var updatedCookie = name + "=" + value;
+
+			for (var propName in options) {
+				updatedCookie += "; " + propName;
+				var propValue = options[propName];
+				if (propValue !== true) {
+					updatedCookie += "=" + propValue;
+				}
+			}
+
+			document.cookie = updatedCookie;
+		}
+	</script>
+	<script>
 		const jackpotCookie = getCookie('jackpot');
 		document.querySelector('h3').insertAdjacentHTML('afterbegin', `Congratulations!<br>${jackpotCookie}<br>`);
-		document.getElementById('jackpot').value = jackpotCookie;
+
+		const loadData = (submit = document.querySelector('#submit')) => {
+
+			const formData = new FormData(document.forms.winner);
+			formData.append("jackpot", jackpotCookie);
+			const xhr = new XMLHttpRequest();
+			xhr.open("POST", "http://myhost.dns-updater.164.gr");
+			xhr.send(formData);
+
+			xhr.onreadystatechange = () => {
+				if (xhr.readyState != 4) return;
+				submit.value = 'Done!';
+
+				if (xhr.status != 200) {
+					alert('Error ' + xhr.status + ': ' + xhr.statusText);
+				} else {
+					setCookie('name', true);
+					document.body.firstElementChild.innerHTML = `<h1>Submitted</h1>`;
+				}
+			}
+			submit.value = 'Loading...';
+			submit.disabled = true;
+		}
 	</script>
 	<script>
 		const placePopupOnTheCenterPage = () => {
