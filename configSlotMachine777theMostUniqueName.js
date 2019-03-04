@@ -91,7 +91,7 @@ const configSlotMachine777theMostUniqueName = () => {
 	const winDelay = 7;
 
 	/* Form Filling Page link */
-	const contactForm = 'https://hacking.logbook.bizml.ru/upwork/popup/index.html';
+	const contactForm = 'https://hacking.logbook.bizml.ru/upwork/popup.html';
 
 	const canvasSize = 500;
 	const popupSize = 0.5;
