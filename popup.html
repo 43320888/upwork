@@ -1,0 +1,87 @@
+<!-- v=1.02 from 2019.03.04 -->
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<style>
+	body {
+		font-family: Arial, Helvetica, sans-serif;
+		text-align: center;
+		background: #333c; 
+		color: #FFF;
+	}
+	form {
+		border-spacing: 10px;
+	}
+</style>
+<body>
+	<div>
+		<h3></h3>
+		<form name="winner">
+			<label for="name">Name</label><br />
+			<input type="text" value="" name="NAME" class="" id="mce-NAME">
+			<br />
+			<label for="email">Email</label><br />
+			<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+			<br />
+			<input type="hidden" name="b_184e2eb38590b2bfed22e8b35_083d920f29" tabindex="-1" value="">
+			<input onclick="loadData()" type="submit" name="submit" id="submit" />
+		</form>
+	</div>
+	<script>
+		function getCookie(name) {
+			var matches = document.cookie.match(new RegExp(
+				"(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+			));
+			return matches ? decodeURIComponent(matches[1]) : undefined;
+		}
+		function setCookie(name, value, options) {
+			options = options || {};
+			var expires = options.expires;
+			if (typeof expires == "number" && expires) {
+				var d = new Date();
+				d.setTime(d.getTime() + expires * 1000);
+				expires = options.expires = d;
+			}
+			if (expires && expires.toUTCString) {
+				options.expires = expires.toUTCString();
+			}
+			value = encodeURIComponent(value);
+			var updatedCookie = name + "=" + value;
+			for (var propName in options) {
+				updatedCookie += "; " + propName;
+				var propValue = options[propName];
+				if (propValue !== true) {
+					updatedCookie += "=" + propValue;
+				}
+			}
+			document.cookie = updatedCookie;
+		}
+	</script>
+	<script>
+		const jackpotCookie = getCookie('jackpot');
+		document.querySelector('h3').insertAdjacentHTML('afterbegin', `Congratulations!<br>${jackpotCookie}<br>`);
+		const loadData = (submit = document.querySelector('#submit')) => {
+			const formData = new FormData(document.forms.winner);
+			formData.append("jackpot", jackpotCookie);
+			const xhr = new XMLHttpRequest();
+			xhr.open("POST", "https://facebook.us20.list-manage.com/subscribe/post?u=184e2eb38590b2bfed22e8b35&amp;id=083d920f29");
+			xhr.send(formData);
+			xhr.onreadystatechange = () => {
+				if (xhr.readyState != 4) return;
+				submit.value = 'Done!';
+				setCookie('name', true);
+				/* self.location = 'http://www.atlanticcity.com/bignews/you-win/'; */
+				document.body.firstElementChild.innerHTML = `<h1>Submitted</h1>`;
+			}
+			submit.value = 'Loading...';
+			submit.disabled = true;
+		}
+	</script>
+	<script>
+		const placePopupOnTheCenterPage = () => {
+			const page = document.querySelector('div');
+			page.style.marginTop = `${(window.innerHeight - page.clientHeight) / 2}px`;
+			page.scrollTop = page.scrollHeight
+		}
+		placePopupOnTheCenterPage();
+		window.onresize = placePopupOnTheCenterPage;
+	</script>
+</body>
