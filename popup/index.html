@@ -76,7 +76,7 @@
 			xhr.onreadystatechange = () => {
 				if (xhr.readyState != 4) return;
 				submit.value = 'Done!';
-				setCookie('name', true);
+				setCookie('name', true, {path : '/'});
 				/* self.location = 'http://www.atlanticcity.com/bignews/you-win/'; */
 				document.body.firstElementChild.innerHTML = `<h1>Submitted</h1>`;
 			}
